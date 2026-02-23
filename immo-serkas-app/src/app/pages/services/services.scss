@@ -1,0 +1,153 @@
+.services-page {
+  min-height: 100vh;
+}
+
+.page-hero {
+  background: linear-gradient(135deg, var(--primary-dark-blue) 0%, var(--primary-blue) 100%);
+  padding: 4rem 2rem;
+  position: relative;
+}
+
+.page-hero .hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.page-hero h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 2px;
+}
+
+.hero-divider {
+  width: 2px;
+  height: 60px;
+  background: var(--white);
+  opacity: 0.8;
+}
+
+.page-hero p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.services-main {
+  padding: 4rem 2rem;
+  background: var(--white);
+}
+
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.service-card {
+  padding: 2rem;
+  background: var(--light-gray);
+  border-radius: 12px;
+  transition: all 0.2s;
+  color: inherit;
+  display: block;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .service-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    color: var(--primary-dark-blue);
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    color: var(--dark-gray);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  .link-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+  }
+}
+
+.services-cta {
+  margin-top: 3rem;
+  text-align: center;
+
+  .btn {
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    background: var(--primary-dark-blue);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover {
+      background: var(--primary-blue);
+    }
+  }
+}
+
+.other-services {
+  padding: 4rem 2rem;
+  background: var(--light-gray);
+}
+
+.other-services h2 {
+  font-size: 1.75rem;
+  color: var(--primary-dark-blue);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.other-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.other-service-card {
+  padding: 2rem;
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+
+  h3 {
+    font-size: 1.2rem;
+    color: var(--primary-dark-blue);
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: var(--dark-gray);
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
