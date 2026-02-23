@@ -1,125 +1,25 @@
+// ─────────────────────────────────────────────────────────
+//  home.component.scss
+//  Matches the Serikas Real Estate design (both tab states)
+// ─────────────────────────────────────────────────────────
+
 .home-page {
   min-height: 100vh;
 }
 
-// Hero Section
-.hero {
-  position: relative;
-  min-height: 500px;
-  display: flex;
-  align-items: center;
-  background: linear-gradient(135deg, var(--primary-dark-blue) 0%, var(--primary-blue) 100%);
-  overflow: hidden;
-}
-
-.hero-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 4rem 2rem;
-  align-items: center;
-}
-
-.hero-text {
-  h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--white);
-    margin-bottom: 1rem;
-  }
-
-  p {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-    max-width: 400px;
-  }
-}
-
-.hero-image-placeholder {
-  width: 100%;
-  aspect-ratio: 4/3;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 1.2rem;
-}
-
-.hero-wave {
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  right: 0;
-  height: 80px;
-  background: var(--white);
-  clip-path: ellipse(150% 100% at 50% 0%);
-}
-
-// Welcome Section
-.welcome {
-  padding: 5rem 2rem;
-  background: var(--white);
-}
-
-.welcome-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 4rem;
-  align-items: center;
-}
-
-.circular-image {
-  width: 350px;
-  height: 350px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--light-gray) 0%, var(--cream) 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--gray);
-  font-size: 1.2rem;
-  margin: 0 auto;
-}
-
-.welcome-text {
-  h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--primary-dark-blue);
-    margin-bottom: 1.5rem;
-  }
-
-  p {
-    color: var(--dark-gray);
-    margin-bottom: 2rem;
-    line-height: 1.8;
-  }
-}
-
-.welcome-buttons {
-  display: flex;
-  gap: 1rem;
-}
-
-// Buttons
+// ── Shared button ──────────────────────────────────────────
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.875rem 1.5rem;
+  gap: 0.4rem;
+  padding: 0.8rem 1.5rem;
   border-radius: 8px;
   font-weight: 600;
-  font-size: 0.95rem;
-  transition: all 0.2s;
+  font-size: 0.9rem;
   cursor: pointer;
   border: none;
+  text-decoration: none;
+  transition: background 0.2s;
 
   &.btn-primary {
     background: var(--primary-dark-blue);
@@ -130,296 +30,450 @@
     }
   }
 
-  &.btn-outline {
-    background: transparent;
-    color: var(--primary-dark-blue);
-    border: 2px solid var(--primary-dark-blue);
-
-    &:hover {
-      background: var(--primary-dark-blue);
-      color: var(--white);
-    }
-  }
-
-  &.btn-small {
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
-  }
-}
-
-// Objectives Section
-.objectives {
-  padding: 4rem 2rem;
-  background: var(--light-gray);
-}
-
-.objectives-grid {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-}
-
-.objective-card {
-  text-align: center;
-  padding: 2rem;
-  background: var(--white);
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-
-  .objective-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
-
-  h3 {
-    font-size: 1.2rem;
-    color: var(--primary-dark-blue);
-    margin-bottom: 1rem;
-  }
-
-  p {
-    color: var(--dark-gray);
-    font-size: 0.95rem;
-    line-height: 1.6;
-  }
-}
-
-// Features Section
-.features {
-  padding: 5rem 2rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.features-bg {
-  position: absolute;
-  inset: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="%23f7fafc" width="100" height="100"/></svg>');
-  opacity: 0.5;
-}
-
-.features-content {
-  position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.section-label {
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 2px;
-  color: var(--gray);
-  margin-bottom: 0.5rem;
-}
-
-.section-title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--primary-dark-blue);
-  margin-bottom: 3rem;
-}
-
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-}
-
-.feature-card {
-  background: var(--white);
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  text-align: center;
-  transition: transform 0.2s;
-
-  &:hover {
-    transform: translateY(-4px);
-  }
-
-  .feature-icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: var(--primary-blue);
-    color: var(--white);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1rem;
-    font-size: 1.25rem;
-  }
-
-  .feature-number {
-    display: block;
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--primary-dark-blue);
-    margin-bottom: 0.5rem;
-  }
-
-  .feature-desc {
-    font-size: 0.95rem;
-    color: var(--dark-gray);
-  }
-}
-
-// Services Section
-.services {
-  padding: 5rem 2rem;
-  background: var(--white);
-}
-
-.services-header {
-  max-width: 1200px;
-  margin: 0 auto 3rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 1rem;
-
-  .section-label,
-  .section-title {
-    margin-bottom: 0.5rem;
-  }
-
-  .services-desc {
-    flex: 1 1 100%;
-    color: var(--dark-gray);
-    max-width: 600px;
-  }
-}
-
-.services-nav {
-  display: flex;
-  gap: 0.5rem;
-
-  .nav-btn {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 1px solid var(--gray);
-    background: var(--white);
-    cursor: pointer;
+  .arrow {
     font-size: 1rem;
-    transition: all 0.2s;
+    line-height: 1;
+  }
+}
+
+// ── Shared tab bar ─────────────────────────────────────────
+.tab-bar {
+  display: flex;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+  width: fit-content;
+  margin-bottom: 1.75rem;
+
+  .tab-btn {
+    padding: 0.55rem 1.4rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    background: var(--white);
+    color: #718096;
+    transition: background 0.2s, color 0.2s;
 
     &.active {
       background: var(--primary-dark-blue);
       color: var(--white);
-      border-color: var(--primary-dark-blue);
-    }
-
-    &:hover {
-      border-color: var(--primary-dark-blue);
     }
   }
 }
 
-.services-grid {
+// ── HERO ──────────────────────────────────────────────────
+.hero {
+  background: #f4f5f7;
+  overflow: hidden;
+}
+
+.hero-inner {
   max-width: 1200px;
-  margin: 0 auto 3rem;
+  margin: 0 auto;
+  padding: 4.5rem 2rem 4rem;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
 }
 
-.service-card {
-  padding: 2rem;
-  border-radius: 12px;
-  transition: transform 0.2s;
-
-  &.cream {
-    background: var(--cream);
+.hero-text {
+  h1 {
+    font-size: 2.6rem;
+    font-weight: 800;
+    color: #1a202c;
+    line-height: 1.18;
+    margin-bottom: 1.1rem;
   }
 
-  &.gray {
-    background: var(--light-gray);
+  p {
+    color: #4a5568;
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    max-width: 380px;
+    line-height: 1.7;
+  }
+}
+
+.hero-media {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+
+// Faint map grid behind the house image
+.map-grid-bg {
+  position: absolute;
+  top: -24px;
+  right: -24px;
+  width: 72%;
+  height: 108%;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(160, 174, 192, 0.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(160, 174, 192, 0.35) 1px, transparent 1px);
+  background-size: 34px 34px;
+  border-radius: 10px;
+}
+
+.hero-house-img {
+  position: relative;
+  z-index: 1;
+  width: 88%;
+  aspect-ratio: 4 / 3;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+// Small floating map-pin labels
+.map-pin {
+  position: absolute;
+  background: var(--white);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #4a5568;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  white-space: nowrap;
+
+  &.pin-1 { top: 24px;    right: 8px; }
+  &.pin-2 { top: 62px;    right: 6px; }
+  &.pin-3 { bottom: 68px; right: 6px; }
+  &.pin-4 { bottom: 34px; right: 8px; }
+}
+
+// ── TAB SECTION ───────────────────────────────────────────
+.tab-section {
+  background: var(--white);
+  padding: 5rem 2rem;
+}
+
+.tab-section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+// Hide/show panels
+.tab-panel {
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}
+
+// ABOUT US layout: house image left | tab + text right
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-img {
+  border-radius: 14px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3.2;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.about-content {
+  h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #1a202c;
+    margin-bottom: 1.1rem;
+    line-height: 1.25;
   }
 
-  &:hover {
-    transform: translateY(-4px);
+  p {
+    color: #4a5568;
+    font-size: 0.92rem;
+    line-height: 1.8;
+    margin-bottom: 1.8rem;
+  }
+}
+
+// OUR SERVICES layout: mosaic left | tab + text right
+.services-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+// The mosaic image grid (matches image 2 exactly)
+.services-mosaic {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 8px;
+
+  .col-left,
+  .col-right {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
 
-  .service-image {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: var(--white);
+  // Bottom 4 cards span full 2-col width
+  .col-bottom-4 {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+}
+
+.mosaic-card {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  &.tall   { height: 200px; }
+  &.medium { height: 150px; }
+  &.short  { height: 125px; }
+
+  // Invisible placeholder to fill the grid gap in col-bottom-4
+  &.placeholder-card {
+    background: transparent;
+    pointer-events: none;
+  }
+
+  .mosaic-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 0.4rem 0.85rem;
+    background: var(--primary-dark-blue);
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 0 6px 0 0;
+  }
+}
+
+.services-content {
+  h2 {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: #1a202c;
+    margin-bottom: 1rem;
+    line-height: 1.25;
+  }
+
+  p {
+    color: #4a5568;
+    font-size: 0.92rem;
+    line-height: 1.8;
+  }
+}
+
+// ── OBJECTIVES ────────────────────────────────────────────
+.objectives {
+  background: var(--white);
+  padding: 0 2rem 5rem;
+}
+
+.objectives-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+.obj-card {
+  border: 1.5px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  background: var(--white);
+
+  .obj-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 1.25rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1rem;
-    font-size: 2rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
   }
 
   h3 {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    font-weight: 700;
     color: var(--primary-dark-blue);
     margin-bottom: 0.75rem;
   }
 
   p {
-    color: var(--dark-gray);
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-    line-height: 1.6;
+    font-size: 0.875rem;
+    color: #4a5568;
+    line-height: 1.7;
   }
 }
 
-.services-buttons {
-  max-width: 1200px;
+// ── WHY CHOOSE US ─────────────────────────────────────────
+.why-section {
+  background: #dde2ec;
+  padding: 3.5rem 2rem;
+}
+
+.why-card {
+  max-width: 1100px;
   margin: 0 auto;
-  display: flex;
+  background: var(--white);
+  border-radius: 18px;
+  padding: 3rem 3.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.why-left {
+  h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #1a202c;
+    margin-bottom: 0.5rem;
+  }
+
+  .why-sub {
+    color: #718096;
+    font-size: 0.88rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
 }
 
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  text-align: center;
+
+  .stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #edf2f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+    }
+  }
+
+  .stat-num {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #1a202c;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.72rem;
+    color: #718096;
+  }
+}
+
+.why-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.why-illustration {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+}
+
+// ── RESPONSIVE ────────────────────────────────────────────
 @media (max-width: 1024px) {
-  .hero-content {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .hero-text p {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .welcome-content {
+  .hero-inner,
+  .about-layout,
+  .why-card {
     grid-template-columns: 1fr;
   }
 
-  .objectives-grid {
+  .hero-text h1 { font-size: 2rem; }
+  .hero-media { justify-content: center; }
+  .map-grid-bg { display: none; }
+  .map-pin { display: none; }
+
+  .services-layout {
     grid-template-columns: 1fr;
   }
 
-  .features-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .objectives-inner {
+    grid-template-columns: 1fr;
   }
 
-  .services-grid {
+  .why-right {
+    justify-content: center;
+    order: -1;
+  }
+
+  .stats-row {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 768px) {
-  .features-grid,
-  .services-grid {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 640px) {
+  .hero-inner { padding: 2.5rem 1.25rem; }
+  .tab-section { padding: 3rem 1.25rem; }
+  .objectives { padding: 0 1.25rem 3rem; }
+  .why-section { padding: 2rem 1.25rem; }
+  .why-card { padding: 2rem 1.5rem; grid-template-columns: 1fr; }
 
-  .welcome-buttons,
-  .services-buttons {
-    flex-direction: column;
-  }
-
-  .circular-image {
-    width: 250px;
-    height: 250px;
+  .services-mosaic {
+    grid-template-columns: 1fr 1fr;
+    .col-bottom-4 {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 }

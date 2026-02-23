@@ -1,132 +1,165 @@
 <div class="home-page">
-  <!-- Hero Section -->
+
+  <!-- ── HERO ── -->
   <section class="hero">
-    <div class="hero-content">
+    <div class="hero-inner">
       <div class="hero-text">
-        <h1>Lorem ipsum dolor</h1>
-        <p>We provides professional estate to clients of all sectors in a welcoming and relaxing environment.</p>
-        <a href="#" class="btn btn-primary">Learn More</a>
+        <h1>Buy, rent, or sell your<br />property easily</h1>
+        <p>A great platform to buy, sell, or even rent your properties without any commissions.</p>
+        <a routerLink="/properties" class="btn btn-primary">See more <span class="arrow">›</span></a>
       </div>
-      <div class="hero-image">
-        <div class="hero-image-placeholder">
-          <span>Family / Office</span>
+      <div class="hero-media">
+        <div class="map-grid-bg"></div>
+        <div class="hero-house-img">
+          <img src="assets/images/hero-house.svg" alt="Modern house at dusk" />
         </div>
-      </div>
-    </div>
-    <div class="hero-wave"></div>
-  </section>
-
-  <!-- Welcome Section -->
-  <section class="welcome">
-    <div class="welcome-content">
-      <div class="welcome-image">
-        <div class="circular-image">
-          <span>Team</span>
-        </div>
-      </div>
-      <div class="welcome-text">
-        <h2>Welcome to Immo Serkas!</h2>
-        <p>We operate across diverse sectors including real estate, mining, oil & gas, research & development, road & bridge construction, customs clearance, new company creation, and port services. We work for ourselves and third parties to deliver comprehensive solutions.</p>
-        <div class="welcome-buttons">
-          <a href="#" class="btn btn-primary">Learn More <span class="arrow">→</span></a>
-          <a routerLink="/contact" class="btn btn-outline">Contact Us <span class="icon">💬</span></a>
-        </div>
+        <div class="map-pin pin-1">Pantai Baharu</div>
+        <div class="map-pin pin-2">Signature Hotel</div>
+        <div class="map-pin pin-3">Ames Centre</div>
+        <div class="map-pin pin-4">Federal Hwy</div>
       </div>
     </div>
   </section>
 
-  <!-- Objective, Goal, Vision & Mission -->
+  <!-- ── ABOUT / SERVICES TAB SECTION ── -->
+  <section class="tab-section">
+    <div class="tab-section-inner">
+
+      <!-- ABOUT US PANEL -->
+      <div class="tab-panel" [class.active]="activeTab === 'about'">
+        <div class="about-layout">
+          <div class="about-img">
+            <img src="assets/images/about-house.svg" alt="House exterior" />
+          </div>
+          <div class="about-content">
+            <div class="tab-bar">
+              <button
+                class="tab-btn"
+                [class.active]="activeTab === 'about'"
+                (click)="activeTab = 'about'">About Us</button>
+              <button
+                class="tab-btn"
+                [class.active]="activeTab === 'services'"
+                (click)="activeTab = 'services'">Our Services</button>
+            </div>
+            <h2>Welcome to Immo Serkas</h2>
+            <p>We operate in several sectors, including real estate activities and transactions, mining operations, oil and gas activities, and research and development. We work both for ourselves and for third parties. We are involved in road and bridge construction, customs clearance (import/export), the creation of new companies, and hotel services, providing all the necessary resources at your disposal.</p>
+            <a routerLink="/about" class="btn btn-primary">See More <span class="arrow">›</span></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- OUR SERVICES PANEL -->
+      <div class="tab-panel" [class.active]="activeTab === 'services'">
+        <div class="services-layout">
+          <div class="services-mosaic">
+            <div class="mosaic-col col-left">
+              <div class="mosaic-card tall">
+                <img src="assets/images/svc-clearance.svg" alt="Clearance" />
+                <span class="mosaic-label">Clearance</span>
+              </div>
+              <div class="mosaic-card medium">
+                <img src="assets/images/svc-tracking.svg" alt="Tracking" />
+                <span class="mosaic-label">Tracking</span>
+              </div>
+              <div class="mosaic-card short">
+                <img src="assets/images/svc-mining.svg" alt="Mining Operation" />
+                <span class="mosaic-label">Mining Operation</span>
+              </div>
+              <div class="mosaic-card short">
+                <img src="assets/images/svc-study.svg" alt="Study Operation" />
+                <span class="mosaic-label">Study Operation</span>
+              </div>
+            </div>
+            <div class="mosaic-col col-right">
+              <div class="mosaic-card medium">
+                <img src="assets/images/svc-realestate.svg" alt="Real Estate" />
+                <span class="mosaic-label">Real Estate</span>
+              </div>
+              <div class="mosaic-card tall">
+                <img src="assets/images/svc-handling.svg" alt="Handling" />
+                <span class="mosaic-label">Handling</span>
+              </div>
+              <div class="mosaic-card short">
+                <img src="assets/images/svc-transport.svg" alt="Transportation" />
+                <span class="mosaic-label">Transportation</span>
+              </div>
+              <div class="mosaic-card short">
+                <img src="assets/images/svc-oil.svg" alt="Oil Activity" />
+                <span class="mosaic-label">Oil Activity</span>
+              </div>
+            </div>
+            <!-- Bottom 4 equal cards -->
+            <div class="mosaic-col col-bottom-4">
+              <div class="mosaic-card short">
+                <img src="assets/images/svc-logistics.svg" alt="Logistics" />
+                <span class="mosaic-label">Logistics</span>
+              </div>
+              <div class="mosaic-card short placeholder-card"></div>
+              <div class="mosaic-card short">
+                <img src="assets/images/svc-trade.svg" alt="General Trade" />
+                <span class="mosaic-label">General Trade</span>
+              </div>
+              <div class="mosaic-card short">
+                <img src="assets/images/svc-install.svg" alt="Installation Operation" />
+                <span class="mosaic-label">Installation Operation</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="services-content">
+            <div class="tab-bar">
+              <button
+                class="tab-btn"
+                [class.active]="activeTab === 'about'"
+                (click)="activeTab = 'about'">About Us</button>
+              <button
+                class="tab-btn"
+                [class.active]="activeTab === 'services'"
+                (click)="activeTab = 'services'">Our Services</button>
+            </div>
+            <h2>Our Services &amp; Operations</h2>
+            <p>We operate in several sectors, including real estate activities and transactions, mining operations, oil and gas activities, and research and development. We work both for ourselves and for third parties. We are involved in road and bridge construction, customs clearance (import/export), the creation of new companies, and hotel services, providing all the necessary resources at your disposal.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── OBJECTIVES / GOALS / VISION ── -->
   <section class="objectives">
-    <div class="objectives-grid">
-      <div class="objective-card">
-        <div class="objective-icon">📦</div>
-        <h3>What is our objective?</h3>
-        <p>By 2025, to be among the best companies in construction, customs and services. By 2030, to be a reference in these sectors.</p>
-      </div>
-      <div class="objective-card">
-        <div class="objective-icon">🧪</div>
-        <h3>What is our goal?</h3>
-        <p>To be a reference for all your real estate and hospitality needs, experienced in buying, selling, diamond cutting, gold extraction and marketing.</p>
-      </div>
-      <div class="objective-card">
-        <div class="objective-icon">🎯</div>
-        <h3>Vision & Mission</h3>
-        <p>To ensure security, surveillance, guarding, and transport of valuables. We also provide private protection of persons and property.</p>
+    <div class="objectives-inner">
+      <div class="obj-card" *ngFor="let card of objectiveCards">
+        <div class="obj-icon">
+          <img [src]="card.icon" [alt]="card.title" />
+        </div>
+        <h3>{{ card.title }}</h3>
+        <p>{{ card.body }}</p>
       </div>
     </div>
   </section>
 
-  <!-- Why Choose Us / Features -->
-  <section class="features">
-    <div class="features-bg"></div>
-    <div class="features-content">
-      <p class="section-label">OUR FEATURES</p>
-      <h2 class="section-title">Why Choose Us</h2>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">%</div>
-          <span class="feature-number">30</span>
-          <span class="feature-desc">Years of experience</span>
+  <!-- ── WHY CHOOSE US ── -->
+  <section class="why-section">
+    <div class="why-card">
+      <div class="why-left">
+        <h2>Why Choose Us</h2>
+        <p class="why-sub">Find your dream place to live in with more than 10k+ properties listed.</p>
+        <div class="stats-row">
+          <div class="stat" *ngFor="let s of stats">
+            <div class="stat-icon">
+              <img [src]="s.icon" [alt]="s.label" />
+            </div>
+            <span class="stat-num">{{ s.value }}</span>
+            <span class="stat-label">{{ s.label }}</span>
+          </div>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">+</div>
-          <span class="feature-number">50</span>
-          <span class="feature-desc">Satisfied customers</span>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">📍</div>
-          <span class="feature-number">527</span>
-          <span class="feature-desc">Projects completed</span>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🏆</div>
-          <span class="feature-number">156</span>
-          <span class="feature-desc">Awards won</span>
-        </div>
+      </div>
+      <div class="why-right">
+        <img class="why-illustration" src="assets/images/house-illustration.svg" alt="Property illustration" />
       </div>
     </div>
   </section>
 
-  <!-- Our Services -->
-  <section class="services">
-    <div class="services-header">
-      <p class="section-label">OUR SERVICES</p>
-      <h2 class="section-title">Lorem ipsum</h2>
-      <p class="services-desc">We offer flexible solutions across real estate, logistics, customs clearance, and transport to meet your diverse business needs.</p>
-      <div class="services-nav">
-        <button class="nav-btn">←</button>
-        <button class="nav-btn active">→</button>
-      </div>
-    </div>
-    <div class="services-grid">
-      <div class="service-card cream">
-        <div class="service-image"><span>🚢</span></div>
-        <h3>Clearance</h3>
-        <p>Customs clearance and documentation services for smooth international trade operations.</p>
-        <a href="#" class="btn btn-small">See More</a>
-      </div>
-      <div class="service-card cream">
-        <div class="service-image"><span>🏢</span></div>
-        <h3>Real estate</h3>
-        <p>Comprehensive real estate services including buying, selling, and property management.</p>
-        <a href="#" class="btn btn-small">See More</a>
-      </div>
-      <div class="service-card gray">
-        <div class="service-image"><span>📍</span></div>
-        <h3>Tracking</h3>
-        <p>Real-time tracking and logistics management for your shipments and operations.</p>
-        <a href="#" class="btn btn-small">See More</a>
-      </div>
-      <div class="service-card gray">
-        <div class="service-image"><span>🚚</span></div>
-        <h3>Transport</h3>
-        <p>Efficient transport and logistics solutions for goods and materials.</p>
-        <a href="#" class="btn btn-small">See More</a>
-      </div>
-    </div>
-    <div class="services-buttons">
-      <a routerLink="/services" class="btn btn-primary">See All Services <span class="icon">☰</span></a>
-      <a routerLink="/contact" class="btn btn-outline">Contact Us <span class="icon">💬</span></a>
-    </div>
-  </section>
 </div>
