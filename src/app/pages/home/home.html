@@ -1,0 +1,190 @@
+<div class="home-page">
+
+  <!-- ══════════════════════════════════════
+       HERO  (no separator above — first section)
+  ══════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1>Buy, rent, or sell your<br/><em>property easily</em></h1>
+        <p>A great platform to buy, sell, or even rent your properties without any commissions.</p>
+        <a routerLink="/properties" class="btn btn-primary">See more <span>›</span></a>
+      </div>
+      <div class="hero-media">
+        <div class="map-grid-bg"></div>
+        <div class="hero-house">
+          <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=720&q=80" alt="House"/>
+        </div>
+        <span class="map-pin pin-1">Pantai Baharu</span>
+        <span class="map-pin pin-2">Signature Hotel</span>
+        <span class="map-pin pin-3">Ames Centre</span>
+        <span class="map-pin pin-4">Federal Hwy</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- LINE SEPARATOR -->
+  <div class="sep"></div>
+
+  <!-- ══════════════════════════════════════
+       ABOUT / SERVICES  TAB SECTION
+  ══════════════════════════════════════ -->
+  <section class="tab-section">
+    <div class="section-inner">
+
+      <!-- TAB BAR — single source of truth, sits above both panels -->
+      <div class="tab-bar">
+        <button
+          class="tab-btn"
+          [class.active]="activeTab === 'about'"
+          (click)="setTab('about')">About Us</button>
+        <button
+          class="tab-btn"
+          [class.active]="activeTab === 'services'"
+          (click)="setTab('services')">Our Services</button>
+      </div>
+
+      <!-- ── ABOUT US PANEL ── -->
+      <div class="tab-panel" [class.active]="activeTab === 'about'">
+        <div class="about-layout">
+          <div class="about-img">
+            <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=720&q=80" alt="House exterior"/>
+          </div>
+          <div class="about-content">
+            <h2>Welcome to Immo Serkas</h2>
+            <p>We operate in several sectors, including real estate activities and transactions, mining operations, oil and gas activities, and research and development. We work both for ourselves and for third parties. We are involved in road and bridge construction, customs clearance (import/export), the creation of new companies, and hotel services, providing all the necessary resources at your disposal.</p>
+            <a routerLink="/about" class="btn btn-primary">See More <span>›</span></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── OUR SERVICES PANEL ── -->
+      <div class="tab-panel" [class.active]="activeTab === 'services'">
+        <div class="services-layout">
+
+          <!-- Left: 2-col staggered mosaic (8 cards) -->
+          <div class="services-mosaic">
+            <div class="mosaic-card" *ngFor="let s of mosaicServices">
+              <img [src]="s.img" [alt]="s.label"/>
+              <span class="mosaic-label">{{ s.label }}</span>
+            </div>
+          </div>
+
+          <!-- Right: heading + text + 2×2 grid -->
+          <div class="services-right">
+            <h2>Our Services &amp; Operations</h2>
+            <p>We operate across diverse sectors — real estate, mining, oil &amp; gas, research and development, road construction, customs clearance, company creation, and hotel services — providing comprehensive solutions for every need.</p>
+            <div class="right-img-grid">
+              <div class="mosaic-card" *ngFor="let s of gridServices">
+                <img [src]="s.img" [alt]="s.label"/>
+                <span class="mosaic-label">{{ s.label }}</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LINE SEPARATOR -->
+  <div class="sep"></div>
+
+  <!-- ══════════════════════════════════════
+       OBJECTIVES  (only on About Us tab)
+  ══════════════════════════════════════ -->
+  <section class="objectives" *ngIf="activeTab === 'about'">
+    <div class="section-inner">
+      <div class="objectives-grid">
+        <div class="obj-card" *ngFor="let card of objectiveCards; let i = index">
+          <div class="obj-icon">
+            <!-- Objective icon -->
+            <svg *ngIf="i === 0" viewBox="0 0 24 24" fill="none" stroke="#1e2d4d" stroke-width="1.8" stroke-linecap="round">
+              <rect x="2" y="7" width="20" height="14" rx="2"/>
+              <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/>
+              <line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/>
+            </svg>
+            <!-- Goal icon -->
+            <svg *ngIf="i === 1" viewBox="0 0 24 24" fill="none" stroke="#1e2d4d" stroke-width="1.8" stroke-linecap="round">
+              <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+            </svg>
+            <!-- Vision icon -->
+            <svg *ngIf="i === 2" viewBox="0 0 24 24" fill="none" stroke="#1e2d4d" stroke-width="1.8" stroke-linecap="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+            </svg>
+          </div>
+          <h3>{{ card.title }}</h3>
+          <p>{{ card.body }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LINE SEPARATOR (only when objectives is visible) -->
+  <div class="sep" *ngIf="activeTab === 'about'"></div>
+
+  <!-- ══════════════════════════════════════
+       WHY CHOOSE US
+       Outer bg = white  |  inner card = #f8f9fb
+  ══════════════════════════════════════ -->
+  <section class="why-section">
+    <div class="section-inner">
+      <div class="why-card">
+        <div class="why-left">
+          <h2>Why Choose Us</h2>
+          <p class="why-sub">Find your dream place to live in with more than 10k+ properties listed.</p>
+          <div class="stats-row">
+            <div class="stat" *ngFor="let s of stats">
+              <div class="stat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#1e2d4d" stroke-width="2" stroke-linecap="round">
+                  <ng-container *ngIf="s.icon === 'trend'">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                  </ng-container>
+                  <ng-container *ngIf="s.icon === 'users'">
+                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/>
+                    <path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>
+                  </ng-container>
+                  <ng-container *ngIf="s.icon === 'check'">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </ng-container>
+                  <ng-container *ngIf="s.icon === 'grid'">
+                    <rect x="2" y="3" width="6" height="6" rx="1"/><rect x="16" y="3" width="6" height="6" rx="1"/>
+                    <rect x="16" y="15" width="6" height="6" rx="1"/><rect x="2" y="15" width="6" height="6" rx="1"/>
+                  </ng-container>
+                </svg>
+              </div>
+              <span class="stat-num">{{ s.value }}</span>
+              <span class="stat-label">{{ s.label }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="why-right">
+          <!-- Inline purple isometric house SVG — no external asset needed -->
+          <svg viewBox="0 0 300 260" fill="none" xmlns="http://www.w3.org/2000/svg" class="house-iso">
+            <ellipse cx="150" cy="245" rx="130" ry="12" fill="#b8b0f0" opacity=".35"/>
+            <path d="M55 205L55 118L150 74L245 118L245 205Z" fill="#7c6ef5"/>
+            <path d="M55 118L150 74L150 34L78 66Z" fill="#6556e0"/>
+            <path d="M245 118L150 74L150 34L222 66Z" fill="#9d8ff8"/>
+            <path d="M55 205L55 118L36 128L36 215Z" fill="#5547cc"/>
+            <path d="M245 205L245 118L264 128L264 215Z" fill="#9080ee"/>
+            <path d="M36 215L55 205L245 205L264 215L264 232L36 232Z" fill="#6556e0" opacity=".85"/>
+            <rect x="72" y="130" width="30" height="22" rx="3" fill="#c4b8ff" opacity=".7"/>
+            <rect x="112" y="130" width="30" height="22" rx="3" fill="#c4b8ff" opacity=".7"/>
+            <rect x="158" y="130" width="30" height="22" rx="3" fill="#d8d0ff" opacity=".6"/>
+            <rect x="197" y="130" width="30" height="22" rx="3" fill="#d8d0ff" opacity=".6"/>
+            <rect x="122" y="168" width="26" height="37" rx="3" fill="#5040c0"/>
+            <circle cx="144" cy="188" r="2.5" fill="#b0a8f0"/>
+            <rect x="185" y="55" width="14" height="28" fill="#8070e8"/>
+            <rect x="182" y="51" width="20" height="8" rx="2" fill="#9d8ff8"/>
+            <circle cx="162" cy="44" r="5" fill="#c4b8ff" opacity=".85"/>
+            <line x1="162" y1="39" x2="162" y2="34" stroke="#c4b8ff" stroke-width="2"/>
+            <circle cx="134" cy="50" r="4" fill="#c4b8ff" opacity=".65"/>
+            <line x1="134" y1="46" x2="134" y2="41" stroke="#c4b8ff" stroke-width="2"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>

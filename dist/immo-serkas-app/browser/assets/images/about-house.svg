@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450">
+  <defs>
+    <linearGradient id="about-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e2e8f0"/>
+      <stop offset="100%" style="stop-color:#cbd5e0"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="450" fill="url(#about-bg)"/>
+  <rect x="150" y="150" width="300" height="200" rx="6" fill="#718096"/>
+  <polygon points="120,150 300,50 480,150" fill="#4a5568"/>
+  <rect x="270" y="230" width="60" height="120" fill="#2d3748"/>
+  <text x="300" y="400" text-anchor="middle" fill="#4a5568" font-family="sans-serif" font-size="16">House Exterior</text>
+</svg>

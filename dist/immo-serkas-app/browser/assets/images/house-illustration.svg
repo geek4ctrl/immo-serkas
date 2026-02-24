@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="house-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a78bfa"/>
+      <stop offset="50%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#3b82f6"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="#edf2f7"/>
+  <rect x="100" y="180" width="200" height="160" rx="8" fill="url(#house-grad)"/>
+  <polygon points="80,180 200,80 320,180" fill="#7c3aed"/>
+  <rect x="175" y="250" width="50" height="90" fill="#4c1d95"/>
+  <rect x="120" y="210" width="40" height="40" fill="rgba(255,255,255,0.3)"/>
+  <rect x="240" y="210" width="40" height="40" fill="rgba(255,255,255,0.3)"/>
+  <line x1="0" y1="340" x2="400" y2="340" stroke="#cbd5e0" stroke-width="2" stroke-dasharray="8,4"/>
+</svg>
