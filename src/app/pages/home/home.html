@@ -140,8 +140,54 @@
         </div>
       </div>
 
+      <!-- Extra services (shown when See More is clicked) -->
+      <div class="off-grid off-grid-extra" *ngIf="showMoreServices">
+        <div class="off-card">
+          <div class="off-icon">
+            <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <div class="off-name"><strong>Operation d'installation</strong></div>
+          <p>Commençant par la fabrication, nous faisons des importations et des exportations, des dédouanements des matériaux et des systèmes destinés aux activités et opérations immobilières décrites ci-dessus.</p>
+          <a routerLink="/services" class="lm">Read More</a>
+        </div>
+        <div class="off-card">
+          <div class="off-icon">
+            <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <div class="off-name"><strong>Opérations d'études</strong></div>
+          <p>Nous faisons des prospections, des recherches d'exploitations et de transformation des substances minérales, ainsi que toutes operations de concentration, de traitement méttalurgique et chimique, de la commercialisation et celle de leurs dérivés pour notre compte et pour celui des tiers.</p>
+          <a routerLink="/services" class="lm">Read More</a>
+        </div>
+        <div class="off-card">
+          <div class="off-icon">
+            <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <div class="off-name"><strong>Activités pétrolières</strong></div>
+          <p>Commençant par la fabrication nous faisons des importations et des exportations, des dédouanements de matériaux et des systèmes destinés aux activités et opérations immobilières décrites ci-dessus.</p>
+          <a routerLink="/services" class="lm">Read More</a>
+        </div>
+        <div class="off-card">
+          <div class="off-icon">
+            <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 12h8" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <div class="off-name"><strong>Commerce général</strong></div>
+          <p>En partant de l'industrie au sens large du terme, nous travaillons aussi dans la foresterie, l'agriculture et l'élevage.</p>
+          <a routerLink="/services" class="lm">Read More</a>
+        </div>
+        <div class="off-card">
+          <div class="off-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" fill="none" stroke="currentColor" stroke-width="2"/><polyline points="3.27 6.96 12 12.01 20.73 6.96" fill="none" stroke="currentColor" stroke-width="2"/><line x1="12" y1="22.08" x2="12" y2="12" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <div class="off-name"><strong>Logistiques</strong></div>
+          <p>En étant dans le conseil et la conception nous sommes aussi dans la mise en oeuvre des réseaux logistiques au service de l'industrie, et du commerce, dans rationalisation, des systèmes logistiques existant, dans la prise en charge et gestion de tertiarisations globales des services en amont et en aval de la production.</p>
+          <a routerLink="/services" class="lm">Read More</a>
+        </div>
+      </div>
+
       <div class="load-wrap">
-        <a routerLink="/services" class="btn-load">See More <span class="arr">↓</span></a>
+        <button type="button" class="btn-load" (click)="toggleServices()">
+          {{ showMoreServices ? 'Show Less' : 'See More' }} <span class="arr">{{ showMoreServices ? '↑' : '↓' }}</span>
+        </button>
       </div>
     </div>
   </section>

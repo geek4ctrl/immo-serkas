@@ -1,11 +1,18 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink],
+  imports: [CommonModule, RouterLink],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
-export class HomeComponent {}
+export class HomeComponent {
+  showMoreServices = false;
+
+  toggleServices(): void {
+    this.showMoreServices = !this.showMoreServices;
+  }
+}

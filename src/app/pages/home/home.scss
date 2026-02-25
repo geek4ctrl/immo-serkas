@@ -418,6 +418,7 @@
   transition: background 0.2s, color 0.2s;
   white-space: nowrap;
   text-decoration: none;
+  font-family: inherit;
 
   &:hover {
     background: var(--green);
@@ -441,6 +442,10 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+}
+
+.off-grid-extra {
+  margin-top: 24px;
 }
 
 .off-card {
@@ -523,6 +528,12 @@
 .load-wrap {
   text-align: center;
   margin-top: 36px;
+}
+
+.btn-load,
+button.btn-green-light {
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 .btn-load {

@@ -7,27 +7,30 @@
 }
 
 :root {
-  --primary-dark-blue: #1a365d;
-  --primary-blue: #2c5282;
-  --accent-teal: #38b2ac;
-  --accent-pink: #e53e3e;
+  /* Brand colors */
+  --primary: #081D53;
+  --primary-dark: #061240;
+  --accent: #dc3545;
+  --accent-hover: #c82333;
   --white: #ffffff;
+  --black: #000000;
   --light-gray: #f7fafc;
   --gray: #718096;
   --dark-gray: #4a5568;
-  --cream: #faf5f0;
-  /* Delhivery / Immo Serkas design tokens */
-  --navy: #0d1b2e;
-  --navy2: #1a2c45;
-  --green: #3d7a3a;
-  --green2: #4a9647;
-  --orange: #e05a1e;
-  --orange2: #f06a2a;
   --grey-bg: #f5f6f8;
-  --text: #1a1a2e;
-  --text2: #444;
-  --text3: #666;
-  --border: #dde1e7;
+  --text: #000000;
+  --text2: #333;
+  --text3: #555;
+  --border: #e2e8f0;
+  /* Legacy aliases */
+  --primary-dark-blue: #081D53;
+  --primary-blue: #0d2a6e;
+  --navy: #081D53;
+  --navy2: #0d2a6e;
+  --green: #081D53;
+  --green2: #0d2a6e;
+  --orange: #dc3545;
+  --orange2: #c82333;
 }
 
 body {
@@ -94,7 +97,7 @@ img {
 .page-hero .hero-divider {
   width: 60px;
   height: 3px;
-  background: var(--orange);
+  background: var(--accent);
   margin: 0 auto 16px;
   border-radius: 2px;
 }
@@ -120,7 +123,7 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--navy2);
+  background: var(--primary);
   color: #fff;
   padding: 12px 28px;
   border-radius: 6px;
@@ -132,7 +135,28 @@ img {
   text-decoration: none;
 
   &:hover {
-    background: #253660;
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+  }
+}
+
+.btn-accent {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent);
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  text-decoration: none;
+
+  &:hover {
+    background: var(--accent-hover);
     transform: translateY(-1px);
   }
 }

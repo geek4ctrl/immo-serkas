@@ -1,12 +1,18 @@
 <header class="header">
   <a routerLink="/home" class="logo">
     <span class="logo-icon"></span>
-    <span class="logo-text">SIRRKAS <span class="logo-sub">DEAL</span></span>
+    <span class="logo-text">SIRRAS <span class="logo-sub">REAL</span></span>
   </a>
   <nav class="nav">
     <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
     <a routerLink="/about" routerLinkActive="active">About Us</a>
     <a routerLink="/services" routerLinkActive="active">Services</a>
     <a routerLink="/contact" routerLinkActive="active">Contact</a>
+    <div class="lang-dropdown">
+      <select [value]="langService.currentLang()" (change)="onLangChange($event)" class="lang-select" aria-label="Language">
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+      </select>
+    </div>
   </nav>
 </header>
