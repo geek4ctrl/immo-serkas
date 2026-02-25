@@ -43,14 +43,14 @@
       </h2>
       <div class="offerings-grid">
         @for (s of services; track s.id) {
-          <div class="offering-card">
+          <a [routerLink]="['/services', s.id]" class="offering-card">
             <div class="offering-icon">
               <app-service-icon [icon]="s.icon" />
             </div>
             <h3>{{ s.name }}</h3>
             <p>{{ s.description }}</p>
-            <a routerLink="/contact" class="read-more">Read More →</a>
-          </div>
+            <span class="read-more">Read More →</span>
+          </a>
         }
       </div>
     </div>

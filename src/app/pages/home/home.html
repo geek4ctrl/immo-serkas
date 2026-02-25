@@ -82,110 +82,110 @@
         </div>
         <div class="off-btns">
           <a routerLink="/contact" class="btn-green">Contact Us</a>
-          <a routerLink="/services" class="btn-green-light">
+          <button type="button" class="btn-green-light" (click)="toggleServices(); $event.preventDefault(); $event.stopPropagation()">
             <svg viewBox="0 0 24 24" width="14" height="14"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
             Explore
-          </a>
+          </button>
         </div>
       </div>
 
       <div class="off-grid">
-        <div class="off-card">
+        <a [routerLink]="['/services', 'dedouanement']" class="off-card">
           <div class="off-icon">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
           </div>
           <div class="off-name"><strong>Overseas</strong></div>
           <p>International shipping and freight services connecting you to global markets with reliable delivery.</p>
-          <a routerLink="/services" class="lm">Read More</a>
-        </div>
-        <div class="off-card">
+          <span class="lm">Read More</span>
+        </a>
+        <a [routerLink]="['/services', 'real-estate']" class="off-card">
           <div class="off-icon">
             <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" fill="none" stroke="currentColor" stroke-width="2"/><polyline points="9 22 9 12 15 12 15 22" fill="none" stroke="currentColor" stroke-width="2"/></svg>
           </div>
           <div class="off-name"><strong>Real Estate</strong></div>
           <p>Comprehensive real estate solutions for residential and commercial property needs.</p>
-          <a routerLink="/services" class="lm">Read More</a>
-        </div>
-        <div class="off-card">
+          <span class="lm">Read More</span>
+        </a>
+        <a [routerLink]="['/services', 'tracking']" class="off-card">
           <div class="off-icon">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
           </div>
           <div class="off-name"><strong>Tracking</strong></div>
           <p>Real-time tracking and visibility for your shipments from pickup to delivery.</p>
-          <a routerLink="/services" class="lm">Read More</a>
-        </div>
-        <div class="off-card">
+          <span class="lm">Read More</span>
+        </a>
+        <a [routerLink]="['/services', 'real-estate']" class="off-card">
           <div class="off-icon">
             <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" fill="none" stroke="currentColor" stroke-width="2"/><line x1="6" y1="1" x2="6" y2="4" stroke="currentColor" stroke-width="2"/><line x1="10" y1="1" x2="10" y2="4" stroke="currentColor" stroke-width="2"/><line x1="14" y1="1" x2="14" y2="4" stroke="currentColor" stroke-width="2"/></svg>
           </div>
           <div class="off-name"><strong>Housing</strong></div>
           <p>Relocation and housing solutions for individuals and families moving domestically or internationally.</p>
-          <a routerLink="/services" class="lm">Read More</a>
-        </div>
-        <div class="off-card">
+          <span class="lm">Read More</span>
+        </a>
+        <a [routerLink]="['/services', 'operation-exploitation']" class="off-card">
           <div class="off-icon">
             <svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3"/></svg>
           </div>
           <div class="off-name"><strong>Mining Operations</strong></div>
           <p>Specialized logistics and support for mining operations and heavy industry.</p>
-          <a routerLink="/services" class="lm">Read More</a>
-        </div>
-        <div class="off-card">
+          <span class="lm">Read More</span>
+        </a>
+        <a [routerLink]="['/services', 'transport']" class="off-card">
           <div class="off-icon">
             <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 8h4l3 3v5h-7V8z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="5.5" cy="18.5" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="18.5" cy="18.5" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
           </div>
           <div class="off-name"><strong>Transportation</strong></div>
           <p>Road, rail, and multimodal transport solutions for efficient cargo movement.</p>
-          <a routerLink="/services" class="lm">Read More</a>
-        </div>
+          <span class="lm">Read More</span>
+        </a>
       </div>
 
       <!-- Extra services (shown when See More is clicked) -->
       <div class="off-grid off-grid-extra" *ngIf="showMoreServices">
-        <div class="off-card">
+        <a [routerLink]="['/services', 'installation']" class="off-card">
           <div class="off-icon">
             <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
           </div>
           <div class="off-name"><strong>Operation d'installation</strong></div>
           <p>Commençant par la fabrication, nous faisons des importations et des exportations, des dédouanements des matériaux et des systèmes destinés aux activités et opérations immobilières décrites ci-dessus.</p>
-          <a routerLink="/services" class="lm">Read More</a>
-        </div>
-        <div class="off-card">
+          <span class="lm">Read More</span>
+        </a>
+        <a [routerLink]="['/services', 'studies']" class="off-card">
           <div class="off-icon">
             <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
           </div>
           <div class="off-name"><strong>Opérations d'études</strong></div>
           <p>Nous faisons des prospections, des recherches d'exploitations et de transformation des substances minérales, ainsi que toutes operations de concentration, de traitement méttalurgique et chimique, de la commercialisation et celle de leurs dérivés pour notre compte et pour celui des tiers.</p>
-          <a routerLink="/services" class="lm">Read More</a>
-        </div>
-        <div class="off-card">
+          <span class="lm">Read More</span>
+        </a>
+        <a [routerLink]="['/services', 'oil']" class="off-card">
           <div class="off-icon">
             <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
           </div>
           <div class="off-name"><strong>Activités pétrolières</strong></div>
           <p>Commençant par la fabrication nous faisons des importations et des exportations, des dédouanements de matériaux et des systèmes destinés aux activités et opérations immobilières décrites ci-dessus.</p>
-          <a routerLink="/services" class="lm">Read More</a>
-        </div>
-        <div class="off-card">
+          <span class="lm">Read More</span>
+        </a>
+        <a [routerLink]="['/services', 'trade']" class="off-card">
           <div class="off-icon">
             <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 12h8" fill="none" stroke="currentColor" stroke-width="2"/></svg>
           </div>
           <div class="off-name"><strong>Commerce général</strong></div>
           <p>En partant de l'industrie au sens large du terme, nous travaillons aussi dans la foresterie, l'agriculture et l'élevage.</p>
-          <a routerLink="/services" class="lm">Read More</a>
-        </div>
-        <div class="off-card">
+          <span class="lm">Read More</span>
+        </a>
+        <a [routerLink]="['/services', 'logistics']" class="off-card">
           <div class="off-icon">
             <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" fill="none" stroke="currentColor" stroke-width="2"/><polyline points="3.27 6.96 12 12.01 20.73 6.96" fill="none" stroke="currentColor" stroke-width="2"/><line x1="12" y1="22.08" x2="12" y2="12" stroke="currentColor" stroke-width="2"/></svg>
           </div>
           <div class="off-name"><strong>Logistiques</strong></div>
           <p>En étant dans le conseil et la conception nous sommes aussi dans la mise en oeuvre des réseaux logistiques au service de l'industrie, et du commerce, dans rationalisation, des systèmes logistiques existant, dans la prise en charge et gestion de tertiarisations globales des services en amont et en aval de la production.</p>
-          <a routerLink="/services" class="lm">Read More</a>
-        </div>
+          <span class="lm">Read More</span>
+        </a>
       </div>
 
       <div class="load-wrap">
-        <button type="button" class="btn-load" (click)="toggleServices()">
+        <button type="button" class="btn-load" (click)="toggleServices(); $event.preventDefault(); $event.stopPropagation()" [attr.aria-expanded]="showMoreServices">
           {{ showMoreServices ? 'Show Less' : 'See More' }} <span class="arr">{{ showMoreServices ? '↑' : '↓' }}</span>
         </button>
       </div>
