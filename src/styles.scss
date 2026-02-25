@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 * {
   margin: 0;
@@ -16,10 +16,22 @@
   --gray: #718096;
   --dark-gray: #4a5568;
   --cream: #faf5f0;
+  /* Delhivery / Immo Serkas design tokens */
+  --navy: #0d1b2e;
+  --navy2: #1a2c45;
+  --green: #3d7a3a;
+  --green2: #4a9647;
+  --orange: #e05a1e;
+  --orange2: #f06a2a;
+  --grey-bg: #f5f6f8;
+  --text: #1a1a2e;
+  --text2: #444;
+  --text3: #666;
+  --border: #dde1e7;
 }
 
 body {
-  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   color: var(--primary-dark-blue);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;

@@ -1,190 +1,195 @@
 <div class="home-page">
-
-  <!-- ══════════════════════════════════════
-       HERO  (no separator above — first section)
-  ══════════════════════════════════════ -->
+  <!-- Hero -->
   <section class="hero">
+    <div class="hero-photo"></div>
+    <div class="hero-grad"></div>
     <div class="hero-inner">
       <div class="hero-text">
-        <h1>Buy, rent, or sell your<br/><em>property easily</em></h1>
-        <p>A great platform to buy, sell, or even rent your properties without any commissions.</p>
-        <a routerLink="/properties" class="btn btn-primary">See more <span>›</span></a>
+        <span class="hero-badge">OUR COMPANY VISION</span>
+        <h1>Welcome to<br/>Delhivery Shipping<br/>Services</h1>
+        <p>Experience unique &amp; best class of chartering services. We deliver your cargo safely across borders with Time Charter and Voyage Charter options tailored to your needs.</p>
+        <a routerLink="/services" class="btn-orange">Read More <span class="arr">→</span></a>
       </div>
-      <div class="hero-media">
-        <div class="map-grid-bg"></div>
-        <div class="hero-house">
-          <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=720&q=80" alt="House"/>
+      <div class="hero-right">
+        <div class="hero-house-wrap">
+          <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&q=80" alt="Property"/>
         </div>
-        <span class="map-pin pin-1">Pantai Baharu</span>
-        <span class="map-pin pin-2">Signature Hotel</span>
-        <span class="map-pin pin-3">Ames Centre</span>
-        <span class="map-pin pin-4">Federal Hwy</span>
       </div>
     </div>
   </section>
 
-  <!-- LINE SEPARATOR -->
   <div class="sep"></div>
 
-  <!-- ══════════════════════════════════════
-       ABOUT / SERVICES  TAB SECTION
-  ══════════════════════════════════════ -->
-  <section class="tab-section">
-    <div class="section-inner">
-
-      <!-- TAB BAR — single source of truth, sits above both panels -->
-      <div class="tab-bar">
-        <button
-          class="tab-btn"
-          [class.active]="activeTab === 'about'"
-          (click)="setTab('about')">About Us</button>
-        <button
-          class="tab-btn"
-          [class.active]="activeTab === 'services'"
-          (click)="setTab('services')">Our Services</button>
+  <!-- About Us -->
+  <section class="about">
+    <div class="about-inner">
+      <div class="about-img">
+        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=700&q=80" alt="About us"/>
       </div>
-
-      <!-- ── ABOUT US PANEL ── -->
-      <div class="tab-panel" [class.active]="activeTab === 'about'">
-        <div class="about-layout">
-          <div class="about-img">
-            <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=720&q=80" alt="House exterior"/>
+      <div class="about-text">
+        <h2>About Us:</h2>
+        <p class="desc">Elementum fames ut massa molestie. Dolor habitasse id sit cras ultrices sit. Morbi sollicitudin quam sem est turpis aliquet. Diam in id quis diam. Lacus vestibulum habitant sollicitudin egestas. Porttitor enim duis dui in mi.</p>
+        <div class="stats">
+          <div class="stat">
+            <span class="stat-val">32 +</span>
+            <span class="stat-lbl">Branches</span>
           </div>
-          <div class="about-content">
-            <h2>Welcome to Immo Serkas</h2>
-            <p>We operate in several sectors, including real estate activities and transactions, mining operations, oil and gas activities, and research and development. We work both for ourselves and for third parties. We are involved in road and bridge construction, customs clearance (import/export), the creation of new companies, and hotel services, providing all the necessary resources at your disposal.</p>
-            <a routerLink="/about" class="btn btn-primary">See More <span>›</span></a>
+          <div class="stat">
+            <span class="stat-val">12 K</span>
+            <span class="stat-lbl">Clients</span>
+          </div>
+          <div class="stat">
+            <span class="stat-val">20 +</span>
+            <span class="stat-lbl">Awards</span>
           </div>
         </div>
+        <a routerLink="/about" class="btn-navy">See More →</a>
       </div>
-
-      <!-- ── OUR SERVICES PANEL ── -->
-      <div class="tab-panel" [class.active]="activeTab === 'services'">
-        <div class="services-layout">
-
-          <!-- Left: 2-col staggered mosaic (8 cards) -->
-          <div class="services-mosaic">
-            <div class="mosaic-card" *ngFor="let s of mosaicServices">
-              <img [src]="s.img" [alt]="s.label"/>
-              <span class="mosaic-label">{{ s.label }}</span>
-            </div>
-          </div>
-
-          <!-- Right: heading + text + 2×2 grid -->
-          <div class="services-right">
-            <h2>Our Services &amp; Operations</h2>
-            <p>We operate across diverse sectors — real estate, mining, oil &amp; gas, research and development, road construction, customs clearance, company creation, and hotel services — providing comprehensive solutions for every need.</p>
-            <div class="right-img-grid">
-              <div class="mosaic-card" *ngFor="let s of gridServices">
-                <img [src]="s.img" [alt]="s.label"/>
-                <span class="mosaic-label">{{ s.label }}</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
     </div>
   </section>
 
-  <!-- LINE SEPARATOR -->
   <div class="sep"></div>
 
-  <!-- ══════════════════════════════════════
-       OBJECTIVES  (only on About Us tab)
-  ══════════════════════════════════════ -->
-  <section class="objectives" *ngIf="activeTab === 'about'">
-    <div class="section-inner">
-      <div class="objectives-grid">
-        <div class="obj-card" *ngFor="let card of objectiveCards; let i = index">
-          <div class="obj-icon">
-            <!-- Objective icon -->
-            <svg *ngIf="i === 0" viewBox="0 0 24 24" fill="none" stroke="#1e2d4d" stroke-width="1.8" stroke-linecap="round">
-              <rect x="2" y="7" width="20" height="14" rx="2"/>
-              <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/>
-              <line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/>
-            </svg>
-            <!-- Goal icon -->
-            <svg *ngIf="i === 1" viewBox="0 0 24 24" fill="none" stroke="#1e2d4d" stroke-width="1.8" stroke-linecap="round">
-              <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
-            </svg>
-            <!-- Vision icon -->
-            <svg *ngIf="i === 2" viewBox="0 0 24 24" fill="none" stroke="#1e2d4d" stroke-width="1.8" stroke-linecap="round">
-              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
-            </svg>
+  <!-- Our Services - containers as background, white overlay card -->
+  <section class="services-section">
+    <div class="services-bg"></div>
+    <div class="services-overlay">
+      <div class="services-card">
+        <div class="svc-left">
+          <h3>Our Services</h3>
+          <p class="sub">Experience unique &amp; best class of chartering services, including Time Charter and Voyage Charter options.</p>
+          <h4>Our specialized subsidiaries</h4>
+          <p class="sub2">April Steel Force, Energy, Heavy Lift — ensure we cater to your cargo's unique requirements. Pre-move survey and door-to-door delivery across industries.</p>
+        </div>
+        <div class="svc-right">
+          <div class="svc-img svc-img-top">
+            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&q=80" alt="Aerial port view"/>
           </div>
-          <h3>{{ card.title }}</h3>
-          <p>{{ card.body }}</p>
+          <div class="svc-img svc-img-bottom">
+            <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&q=80" alt="Logistics professional"/>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- LINE SEPARATOR (only when objectives is visible) -->
-  <div class="sep" *ngIf="activeTab === 'about'"></div>
+  <!-- Our Offerings -->
+  <section class="offerings">
+    <div class="offerings-inner">
+      <div class="off-hdr">
+        <div class="off-title">
+          <span class="grn">Our Offerings:</span> Making Your<br/>Move Effortless
+        </div>
+        <div class="off-btns">
+          <a routerLink="/contact" class="btn-green">
+            <svg viewBox="0 0 24 24" width="14" height="14"><rect x="3" y="4" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2"/><line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2"/><line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/></svg>
+            Book Now
+          </a>
+          <a routerLink="/contact" class="btn-grey-outline">
+            <svg viewBox="0 0 24 24" width="14" height="14"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            Contact Us
+          </a>
+        </div>
+      </div>
 
-  <!-- ══════════════════════════════════════
-       WHY CHOOSE US
-       Outer bg = white  |  inner card = #f8f9fb
-  ══════════════════════════════════════ -->
-  <section class="why-section">
-    <div class="section-inner">
-      <div class="why-card">
-        <div class="why-left">
-          <h2>Why Choose Us</h2>
-          <p class="why-sub">Find your dream place to live in with more than 10k+ properties listed.</p>
-          <div class="stats-row">
-            <div class="stat" *ngFor="let s of stats">
-              <div class="stat-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#1e2d4d" stroke-width="2" stroke-linecap="round">
-                  <ng-container *ngIf="s.icon === 'trend'">
-                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-                  </ng-container>
-                  <ng-container *ngIf="s.icon === 'users'">
-                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/>
-                    <path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>
-                  </ng-container>
-                  <ng-container *ngIf="s.icon === 'check'">
-                    <polyline points="20 6 9 17 4 12"/>
-                  </ng-container>
-                  <ng-container *ngIf="s.icon === 'grid'">
-                    <rect x="2" y="3" width="6" height="6" rx="1"/><rect x="16" y="3" width="6" height="6" rx="1"/>
-                    <rect x="16" y="15" width="6" height="6" rx="1"/><rect x="2" y="15" width="6" height="6" rx="1"/>
-                  </ng-container>
-                </svg>
-              </div>
-              <span class="stat-num">{{ s.value }}</span>
-              <span class="stat-label">{{ s.label }}</span>
-            </div>
+      <div class="off-grid">
+        <div class="off-card">
+          <div class="off-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <div class="off-name"><strong>Courier</strong></div>
+          <p>International shipping and freight services connecting you to global markets with reliable delivery.</p>
+          <a routerLink="/services" class="lm">Read More</a>
+        </div>
+        <div class="off-card">
+          <div class="off-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" fill="none" stroke="currentColor" stroke-width="2"/><polyline points="9 22 9 12 15 12 15 22" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <div class="off-name"><strong>Real Estate</strong></div>
+          <p>Comprehensive real estate solutions for residential and commercial property needs.</p>
+          <a routerLink="/services" class="lm">Read More</a>
+        </div>
+        <div class="off-card">
+          <div class="off-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          </div>
+          <div class="off-name"><strong>Tracking</strong></div>
+          <p>Real-time tracking and visibility for your shipments from pickup to delivery.</p>
+          <a routerLink="/services" class="lm">Read More</a>
+        </div>
+        <div class="off-card">
+          <div class="off-icon">
+            <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" fill="none" stroke="currentColor" stroke-width="2"/><line x1="6" y1="1" x2="6" y2="4" stroke="currentColor" stroke-width="2"/><line x1="10" y1="1" x2="10" y2="4" stroke="currentColor" stroke-width="2"/><line x1="14" y1="1" x2="14" y2="4" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <div class="off-name"><strong>Hauling</strong></div>
+          <p>Secure storage and inventory management solutions for your business operations.</p>
+          <a routerLink="/services" class="lm">Read More</a>
+        </div>
+        <div class="off-card">
+          <div class="off-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <div class="off-name"><strong>Mining Operations</strong></div>
+          <p>Specialized logistics and support for mining operations and heavy industry.</p>
+          <a routerLink="/services" class="lm">Read More</a>
+        </div>
+        <div class="off-card">
+          <div class="off-icon">
+            <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 8h4l3 3v5h-7V8z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="5.5" cy="18.5" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="18.5" cy="18.5" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <div class="off-name"><strong>Transportation</strong></div>
+          <p>Road, rail, and multimodal transport solutions for efficient cargo movement.</p>
+          <a routerLink="/services" class="lm">Read More</a>
+        </div>
+      </div>
+
+      <div class="load-wrap">
+        <a routerLink="/services" class="btn-load">See More <span class="arr">↓</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="why">
+    <div class="why-left-panel">
+      <div class="why-badge">
+        <span class="why-badge-icon">👋</span>
+        <span class="why-badge-text">Moving your products or service orders</span>
+        <a href="#" class="why-badge-btn">Click Here <span>→</span></a>
+      </div>
+      <div class="why-img-bg"></div>
+    </div>
+    <div class="why-text-panel">
+      <h2>Why Choose Us</h2>
+      <p>Leverage agile frameworks to provide a robust synopsis for strategy foster collaborative thinking to further the overall value proposition.</p>
+      <div class="why-feats">
+        <div class="why-feat">
+          <div class="feat-circle">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <div class="feat-body">
+            <h4>Reliability</h4>
+            <p>Your cargo's safety and timely delivery are our top priorities. Trust in our meticulous planning and execution for consistent results.</p>
           </div>
         </div>
-        <div class="why-right">
-          <!-- Inline purple isometric house SVG — no external asset needed -->
-          <svg viewBox="0 0 300 260" fill="none" xmlns="http://www.w3.org/2000/svg" class="house-iso">
-            <ellipse cx="150" cy="245" rx="130" ry="12" fill="#b8b0f0" opacity=".35"/>
-            <path d="M55 205L55 118L150 74L245 118L245 205Z" fill="#7c6ef5"/>
-            <path d="M55 118L150 74L150 34L78 66Z" fill="#6556e0"/>
-            <path d="M245 118L150 74L150 34L222 66Z" fill="#9d8ff8"/>
-            <path d="M55 205L55 118L36 128L36 215Z" fill="#5547cc"/>
-            <path d="M245 205L245 118L264 128L264 215Z" fill="#9080ee"/>
-            <path d="M36 215L55 205L245 205L264 215L264 232L36 232Z" fill="#6556e0" opacity=".85"/>
-            <rect x="72" y="130" width="30" height="22" rx="3" fill="#c4b8ff" opacity=".7"/>
-            <rect x="112" y="130" width="30" height="22" rx="3" fill="#c4b8ff" opacity=".7"/>
-            <rect x="158" y="130" width="30" height="22" rx="3" fill="#d8d0ff" opacity=".6"/>
-            <rect x="197" y="130" width="30" height="22" rx="3" fill="#d8d0ff" opacity=".6"/>
-            <rect x="122" y="168" width="26" height="37" rx="3" fill="#5040c0"/>
-            <circle cx="144" cy="188" r="2.5" fill="#b0a8f0"/>
-            <rect x="185" y="55" width="14" height="28" fill="#8070e8"/>
-            <rect x="182" y="51" width="20" height="8" rx="2" fill="#9d8ff8"/>
-            <circle cx="162" cy="44" r="5" fill="#c4b8ff" opacity=".85"/>
-            <line x1="162" y1="39" x2="162" y2="34" stroke="#c4b8ff" stroke-width="2"/>
-            <circle cx="134" cy="50" r="4" fill="#c4b8ff" opacity=".65"/>
-            <line x1="134" y1="46" x2="134" y2="41" stroke="#c4b8ff" stroke-width="2"/>
-          </svg>
+        <div class="why-feat">
+          <div class="feat-circle">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <div class="feat-body">
+            <h4>Global Reach</h4>
+            <p>Our discreet and professional approach empowers your business to thrive in the competitive global shipping market.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Let's Sail Together -->
+  <div class="sail">
+    <div class="sail-bg"></div>
+    <div class="sail-inner">
+      <h2>Let's Sail Together</h2>
+    </div>
+  </div>
 </div>
