@@ -1,0 +1,113 @@
+@if (service(); as svc) {
+  <div class="service-detail-page">
+    <!-- Hero -->
+    <section class="page-hero">
+      <div class="page-hero-bg"></div>
+      <div class="page-hero-grad"></div>
+      <div class="hero-content">
+        <h1>{{ svc.name }}</h1>
+        <div class="hero-divider"></div>
+        <p>{{ svc.description }}</p>
+      </div>
+    </section>
+
+    <div class="page-sep"></div>
+
+    <!-- Content -->
+    <section class="page-content">
+      <div class="section-inner">
+        <a routerLink="/services" class="back-link">← Back to Services</a>
+        <div class="detail-intro">
+          <div class="detail-icon">
+            <app-service-icon [icon]="svc.icon" />
+          </div>
+          @if (svc.tagline) {
+            <h2 class="detail-tagline">{{ svc.tagline }}</h2>
+          }
+          @if (svc.subTagline) {
+            <p class="detail-sub">{{ svc.subTagline }}</p>
+          }
+        </div>
+
+        <!-- Bullets layout -->
+        @if (svc.bullets && svc.bullets.length) {
+          <div class="detail-block">
+            <ul class="detail-bullets">
+              @for (item of svc.bullets; track item) {
+                <li>{{ item }}</li>
+              }
+            </ul>
+          </div>
+        }
+
+        <!-- Objective (Tracking) -->
+        @if (svc.objective) {
+          <div class="detail-block objective-block">
+            <h3>Our objective</h3>
+            <p>{{ svc.objective }}</p>
+          </div>
+        }
+
+        <!-- Section cards (Transport, Op-dex, Manutention) -->
+        @if (svc.sections && svc.sections.length) {
+          <div class="section-cards">
+            @for (sec of svc.sections; track sec.title) {
+              <div class="section-card">
+                <h4>{{ sec.title }}</h4>
+                <p>{{ sec.description }}</p>
+              </div>
+            }
+          </div>
+        }
+
+        <!-- Full content -->
+        @if (svc.fullContent && !svc.properties?.length) {
+          <div class="detail-block">
+            <p class="detail-full">{{ svc.fullContent }}</p>
+          </div>
+        }
+
+        <!-- Property listings (Immobilier) -->
+        @if (svc.properties && svc.properties.length) {
+          <div class="property-listings">
+            <h3 class="listings-title">We offer</h3>
+            <div class="property-grid">
+              @for (prop of svc.properties; track prop.price) {
+                <div class="property-card">
+                  <h4>{{ prop.title }}</h4>
+                  <ul class="prop-specs">
+                    @for (s of prop.specs; track s) {
+                      <li>{{ s }}</li>
+                    }
+                  </ul>
+                  <div class="prop-price">{{ prop.price }}</div>
+                  @if (prop.address) {
+                    <p class="prop-address">{{ prop.address }}</p>
+                  }
+                  <a routerLink="/contact" class="prop-link">View more</a>
+                </div>
+              }
+            </div>
+          </div>
+        }
+
+        <!-- CTA -->
+        <div class="detail-cta">
+          <a routerLink="/contact" class="btn-navy">Contact Us</a>
+        </div>
+      </div>
+    </section>
+  </div>
+} @else if (id()) {
+  <div class="service-detail-page">
+    <section class="page-content">
+      <div class="section-inner">
+        <a routerLink="/services" class="back-link">← Back to Services</a>
+        <div class="detail-block">
+          <p class="detail-full">Service not found.</p>
+          <a routerLink="/services" class="btn-navy">View all services</a>
+        </div>
+      </div>
+    </section>
+  </div>
+}

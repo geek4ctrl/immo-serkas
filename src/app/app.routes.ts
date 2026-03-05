@@ -4,6 +4,7 @@ export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', loadComponent: () => import('./pages/home/home').then(m => m.HomeComponent) },
   { path: 'about', loadComponent: () => import('./pages/about/about').then(m => m.About) },
+  { path: 'services/:id', loadComponent: () => import('./pages/service-detail/service-detail').then(m => m.ServiceDetail) },
   { path: 'services', loadComponent: () => import('./pages/services/services').then(m => m.Services) },
   { path: 'contact', loadComponent: () => import('./pages/contact/contact').then(m => m.Contact) },
   { path: '**', redirectTo: '/home' }

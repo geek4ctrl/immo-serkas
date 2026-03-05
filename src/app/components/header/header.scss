@@ -20,7 +20,7 @@
 .logo-icon {
   width: 34px;
   height: 34px;
-  background: linear-gradient(135deg, #2abfac, #1fd4be);
+  background: var(--primary);
   border-radius: 50%;
   flex-shrink: 0;
 }
@@ -28,13 +28,29 @@
 .logo-text {
   font-weight: 800;
   font-size: 0.95rem;
-  color: #1a1a2e;
+  color: var(--text);
   letter-spacing: 0.3px;
 
   .logo-sub {
     font-weight: 700;
-    color: #e53e3e;
+    color: var(--accent);
   }
+}
+
+.lang-dropdown {
+  margin-left: 0.5rem;
+}
+
+.lang-select {
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--primary);
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  appearance: auto;
 }
 
 .nav {
@@ -52,11 +68,11 @@
     position: relative;
 
     &:hover {
-      color: #1a1a2e;
+      color: var(--text);
     }
 
     &.active {
-      color: #1a1a2e;
+      color: var(--text);
       font-weight: 700;
 
       &::after {
@@ -68,7 +84,7 @@
         width: 20px;
         height: 2.5px;
         border-radius: 2px;
-        background: #2abfac;
+        background: var(--accent);
       }
     }
   }
