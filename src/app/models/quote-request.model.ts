@@ -24,6 +24,16 @@ export interface Location {
   contactPhone: string;
   preferredDate?: Date;
   specialInstructions?: string;
+  latitude?: number;
+  longitude?: number;
+}
+
+export interface CargoFile {
+  id: string;
+  name: string;
+  size: number;
+  type: string;
+  dataUrl: string;
 }
 
 export interface QuoteRequest {
@@ -39,6 +49,7 @@ export interface QuoteRequest {
   serviceType: 'overseas' | 'real-estate' | 'tracking' | 'housing' | 'mining' | 'transport' | 'installation' | 'studies' | 'oil' | 'trade' | 'logistics';
   urgency: 'standard' | 'express' | 'urgent';
   additionalNotes?: string;
+  attachments?: CargoFile[];
   createdAt?: Date;
   status?: 'pending' | 'quoted' | 'accepted' | 'rejected';
 }
