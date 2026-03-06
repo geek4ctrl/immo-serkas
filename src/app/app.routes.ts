@@ -6,6 +6,7 @@ export const routes: Routes = [
   { path: 'about', loadComponent: () => import('./pages/about/about').then(m => m.About) },
   { path: 'services/:id', loadComponent: () => import('./pages/service-detail/service-detail').then(m => m.ServiceDetail) },
   { path: 'services', loadComponent: () => import('./pages/services/services').then(m => m.Services) },
+  { path: 'quote-request', loadComponent: () => import('./pages/quote-request/quote-request').then(m => m.QuoteRequestPage) },
   { path: 'contact', loadComponent: () => import('./pages/contact/contact').then(m => m.Contact) },
   { path: '**', redirectTo: '/home' }
 ];
