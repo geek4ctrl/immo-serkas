@@ -4,9 +4,9 @@
     <div class="page-hero-bg"></div>
     <div class="page-hero-grad"></div>
     <div class="hero-content">
-      <h1>Contact Us</h1>
+      <h1>{{ langService.isEn() ? 'Contact Us' : 'Contact' }}</h1>
       <div class="hero-divider"></div>
-      <p>Get in touch with our team</p>
+      <p>{{ langService.isEn() ? 'Get in touch with our team' : 'Contactez notre equipe' }}</p>
     </div>
   </section>
 
@@ -17,8 +17,8 @@
     <div class="section-inner contact-layout">
       <!-- Left: Contact Details with social icons -->
       <div class="contact-details">
-        <h2>Contact Details</h2>
-        <p class="contact-desc">SIRRAS REAL offers comprehensive chartering, logistics, real estate and related services. Get in touch for custom solutions tailored to your needs.</p>
+        <h2>{{ langService.isEn() ? 'Contact Details' : 'Coordonnees' }}</h2>
+        <p class="contact-desc">{{ langService.isEn() ? 'Immo Serkas offers real estate, logistics, and operational services. Contact us for solutions tailored to your needs.' : 'Immo Serkas propose des services immobiliers, logistiques et operationnels. Contactez-nous pour des solutions adaptees a vos besoins.' }}</p>
         <div class="contact-info-list">
           <a href="tel:+26776367906" class="info-row">
             <span class="info-icon accent">
@@ -50,31 +50,31 @@
             <svg viewBox="0 0 24 24" width="20" height="20"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" fill="none" stroke="currentColor" stroke-width="2"/><rect x="2" y="9" width="4" height="12" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="4" cy="4" r="2" fill="none" stroke="currentColor" stroke-width="2"/></svg>
           </a>
         </div>
-        <p class="nb">NB: Meetings By Appointment Only</p>
+        <p class="nb">{{ langService.isEn() ? 'NB: Meetings by appointment only' : 'NB : Rendez-vous uniquement sur reservation' }}</p>
       </div>
 
       <!-- Center: Contact Form -->
       <div class="contact-form-col">
-        <h2>Contact Form</h2>
+        <h2>{{ langService.isEn() ? 'Contact Form' : 'Formulaire de contact' }}</h2>
         <form class="contact-form" (submit)="onSubmit($event)">
-          <input type="text" placeholder="Your Full Name *" required>
-          <input type="tel" placeholder="Your Phone Number *" required>
-          <input type="email" placeholder="Your Email Address *" required>
+          <input type="text" [placeholder]="langService.isEn() ? 'Your Full Name *' : 'Nom complet *'" required>
+          <input type="tel" [placeholder]="langService.isEn() ? 'Your Phone Number *' : 'Numero de telephone *'" required>
+          <input type="email" [placeholder]="langService.isEn() ? 'Your Email Address *' : 'Adresse e-mail *'" required>
           <select>
-            <option value="">Select An Item</option>
-            <option value="services">General Inquiry</option>
-            <option value="shipping">Shipping & Logistics</option>
-            <option value="real-estate">Real Estate</option>
-            <option value="other">Other</option>
+            <option value="">{{ langService.isEn() ? 'Select an item' : 'Selectionner un sujet' }}</option>
+            <option value="services">{{ langService.isEn() ? 'General Inquiry' : 'Demande generale' }}</option>
+            <option value="shipping">{{ langService.isEn() ? 'Shipping & Logistics' : 'Transport et logistique' }}</option>
+            <option value="real-estate">{{ langService.isEn() ? 'Real Estate' : 'Immobilier' }}</option>
+            <option value="other">{{ langService.isEn() ? 'Other' : 'Autre' }}</option>
           </select>
-          <textarea placeholder="Your Message *" rows="5" required></textarea>
-          <button type="submit" class="btn-submit">Submit</button>
+          <textarea [placeholder]="langService.isEn() ? 'Your Message *' : 'Votre message *'" rows="5" required></textarea>
+          <button type="submit" class="btn-submit">{{ langService.isEn() ? 'Submit' : 'Envoyer' }}</button>
         </form>
       </div>
 
       <!-- Right: Map -->
       <div class="map-col">
-        <h2>Map</h2>
+        <h2>{{ langService.isEn() ? 'Map' : 'Carte' }}</h2>
         <div class="map-wrapper">
           <iframe
             src="https://www.openstreetmap.org/export/embed.html?bbox=25.89%2C-24.66%2C25.95%2C-24.62&layer=mapnik"
@@ -84,7 +84,7 @@
             allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
-            title="Location Map - Gaborone">
+            [title]="langService.isEn() ? 'Location Map - Gaborone' : 'Carte de localisation - Gaborone'">
           </iframe>
         </div>
       </div>

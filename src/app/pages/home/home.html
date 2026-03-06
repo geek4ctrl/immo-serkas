@@ -5,10 +5,16 @@
     <div class="hero-grad"></div>
     <div class="hero-inner">
       <div class="hero-text">
-        <span class="hero-badge">WELCOME TO</span>
-        <h1>Welcome to<br/>Delhivery Shipping<br/>Services</h1>
-        <p>Experience unique &amp; best class of chartering services. We deliver your cargo safely across borders with Time Charter and Voyage Charter options tailored to your needs.</p>
-        <a routerLink="/services" class="btn-orange">Read More <span class="arr">→</span></a>
+        <span class="hero-badge">{{ langService.isEn() ? 'WELCOME TO' : 'BIENVENUE CHEZ' }}</span>
+        <ng-container *ngIf="langService.isEn(); else heroFr">
+          <h1>Welcome to<br/>Immo Serkas</h1>
+          <p>Real estate, logistics, and trade services that help you move, build, and grow with confidence.</p>
+        </ng-container>
+        <ng-template #heroFr>
+          <h1>Bienvenue chez<br/>Immo Serkas</h1>
+          <p>Des services immobiliers, logistiques et commerciaux pour avancer avec confiance.</p>
+        </ng-template>
+        <a routerLink="/services" class="btn-orange">{{ langService.isEn() ? 'Explore Services' : 'Voir nos services' }} <span class="arr">→</span></a>
       </div>
       <div class="hero-right">
         <div class="hero-house-wrap">
@@ -27,23 +33,28 @@
         <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=700&q=80" alt="About us"/>
       </div>
       <div class="about-text">
-        <h2>About Us:</h2>
-        <p class="desc">Elementum fames ut massa molestie. Dolor habitasse id sit cras ultrices sit. Morbi sollicitudin quam sem est turpis aliquet. Diam in id quis diam. Lacus vestibulum habitant sollicitudin egestas. Porttitor enim duis dui in mi.</p>
+        <h2>{{ langService.isEn() ? 'About Us' : 'A propos' }}</h2>
+        <ng-container *ngIf="langService.isEn(); else aboutFr">
+          <p class="desc">Immo Serkas is a multidisciplinary group delivering real estate, transport, and operational services across the DRC. We combine local expertise with reliable execution to support individuals and businesses.</p>
+        </ng-container>
+        <ng-template #aboutFr>
+          <p class="desc">Immo Serkas est un groupe pluridisciplinaire offrant des services immobiliers, de transport et d exploitation en RDC. Nous allions expertise locale et execution fiable pour accompagner particuliers et entreprises.</p>
+        </ng-template>
         <div class="stats">
           <div class="stat">
             <span class="stat-val">32 +</span>
-            <span class="stat-lbl">Branches</span>
+            <span class="stat-lbl">{{ langService.isEn() ? 'Agencies' : 'Agences' }}</span>
           </div>
           <div class="stat">
             <span class="stat-val">12 K</span>
-            <span class="stat-lbl">Clients</span>
+            <span class="stat-lbl">{{ langService.isEn() ? 'Clients' : 'Clients' }}</span>
           </div>
           <div class="stat">
             <span class="stat-val">20 +</span>
-            <span class="stat-lbl">Awards</span>
+            <span class="stat-lbl">{{ langService.isEn() ? 'Years Experience' : 'Ans d experience' }}</span>
           </div>
         </div>
-        <a routerLink="/about" class="btn-navy">See More →</a>
+        <a routerLink="/about" class="btn-navy">{{ langService.isEn() ? 'Learn More →' : 'En savoir plus →' }}</a>
       </div>
     </div>
   </section>
@@ -56,10 +67,17 @@
     <div class="services-overlay">
       <div class="services-card">
         <div class="svc-left">
-          <h3>Our Services</h3>
-          <p class="sub">Experience unique &amp; best class of chartering services, including Time Charter and Voyage Charter options.</p>
-          <h4>Our specialized subsidiaries</h4>
-          <p class="sub2">April Steel Force, Energy, Heavy Lift — ensure we cater to your cargo's unique requirements. Pre-move survey and door-to-door delivery across industries.</p>
+          <h3>{{ langService.isEn() ? 'Our Services' : 'Nos services' }}</h3>
+          <ng-container *ngIf="langService.isEn(); else svcFr">
+            <p class="sub">From real estate to logistics, we provide end-to-end support for property owners, investors, and growing businesses.</p>
+            <h4>Specialized solutions</h4>
+            <p class="sub2">Customs clearance, transport, property management, and operational support tailored to your sector.</p>
+          </ng-container>
+          <ng-template #svcFr>
+            <p class="sub">De l immobilier a la logistique, nous offrons un accompagnement complet aux proprietaires, investisseurs et entreprises en croissance.</p>
+            <h4>Solutions specialisees</h4>
+            <p class="sub2">Dedouanement, transport, gestion immobiliere et appui operationnel adaptes a votre secteur.</p>
+          </ng-template>
         </div>
         <div class="svc-right">
           <div class="svc-img svc-img-top">
@@ -78,13 +96,18 @@
     <div class="offerings-inner">
       <div class="off-hdr">
         <div class="off-title">
-          <span class="grn">Our Offerings:</span> Making Your<br/>Move Effortless
+          <ng-container *ngIf="langService.isEn(); else offeringsFr">
+            <span class="grn">Our Offerings:</span> Make Your<br/>Projects Effortless
+          </ng-container>
+          <ng-template #offeringsFr>
+            <span class="grn">Nos offres :</span> Simplifier<br/>vos projets
+          </ng-template>
         </div>
         <div class="off-btns">
-          <a routerLink="/contact" class="btn-green">Contact Us</a>
+          <a routerLink="/contact" class="btn-green">{{ langService.isEn() ? 'Contact Us' : 'Nous contacter' }}</a>
           <button type="button" class="btn-green-light" (click)="toggleServices(); $event.preventDefault(); $event.stopPropagation()">
             <svg viewBox="0 0 24 24" width="14" height="14"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-            Explore
+            {{ langService.isEn() ? 'Explore' : 'Explorer' }}
           </button>
         </div>
       </div>
@@ -94,49 +117,49 @@
           <div class="off-icon">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
           </div>
-          <div class="off-name"><strong>Overseas</strong></div>
-          <p>International shipping and freight services connecting you to global markets with reliable delivery.</p>
-          <span class="lm">Read More</span>
+          <div class="off-name"><strong>{{ langService.isEn() ? 'Customs Clearance' : 'Dedouanement' }}</strong></div>
+          <p>{{ langService.isEn() ? 'Import/export documentation and clearance for goods and equipment.' : 'Documents et formalites d import-export pour vos biens et equipements.' }}</p>
+          <span class="lm">{{ langService.isEn() ? 'Read More' : 'En savoir plus' }}</span>
         </a>
         <a [routerLink]="['/services', 'real-estate']" class="off-card">
           <div class="off-icon">
             <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" fill="none" stroke="currentColor" stroke-width="2"/><polyline points="9 22 9 12 15 12 15 22" fill="none" stroke="currentColor" stroke-width="2"/></svg>
           </div>
-          <div class="off-name"><strong>Real Estate</strong></div>
-          <p>Comprehensive real estate solutions for residential and commercial property needs.</p>
-          <span class="lm">Read More</span>
+          <div class="off-name"><strong>{{ langService.isEn() ? 'Real Estate' : 'Immobilier' }}</strong></div>
+          <p>{{ langService.isEn() ? 'Sales, rentals, and property management for residential and commercial clients.' : 'Vente, location et gestion de biens pour particuliers et entreprises.' }}</p>
+          <span class="lm">{{ langService.isEn() ? 'Read More' : 'En savoir plus' }}</span>
         </a>
         <a [routerLink]="['/services', 'tracking']" class="off-card">
           <div class="off-icon">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
           </div>
-          <div class="off-name"><strong>Tracking</strong></div>
-          <p>Real-time tracking and visibility for your shipments from pickup to delivery.</p>
-          <span class="lm">Read More</span>
+          <div class="off-name"><strong>{{ langService.isEn() ? 'Tracking' : 'Tracking' }}</strong></div>
+          <p>{{ langService.isEn() ? 'Track shipments and assets with clear visibility from pickup to delivery.' : 'Suivez vos envois et actifs avec une visibilite claire du depart a la livraison.' }}</p>
+          <span class="lm">{{ langService.isEn() ? 'Read More' : 'En savoir plus' }}</span>
         </a>
-        <a [routerLink]="['/services', 'real-estate']" class="off-card">
+        <a [routerLink]="['/services', 'manutention']" class="off-card">
           <div class="off-icon">
             <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" fill="none" stroke="currentColor" stroke-width="2"/><line x1="6" y1="1" x2="6" y2="4" stroke="currentColor" stroke-width="2"/><line x1="10" y1="1" x2="10" y2="4" stroke="currentColor" stroke-width="2"/><line x1="14" y1="1" x2="14" y2="4" stroke="currentColor" stroke-width="2"/></svg>
           </div>
-          <div class="off-name"><strong>Housing</strong></div>
-          <p>Relocation and housing solutions for individuals and families moving domestically or internationally.</p>
-          <span class="lm">Read More</span>
+          <div class="off-name"><strong>{{ langService.isEn() ? 'Handling & Warehousing' : 'Manutention' }}</strong></div>
+          <p>{{ langService.isEn() ? 'Port, airport, and warehouse handling with secure storage options.' : 'Manutention portuaire, aeroportuaire et entreposage securise.' }}</p>
+          <span class="lm">{{ langService.isEn() ? 'Read More' : 'En savoir plus' }}</span>
         </a>
         <a [routerLink]="['/services', 'operation-exploitation']" class="off-card">
           <div class="off-icon">
             <svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3"/></svg>
           </div>
-          <div class="off-name"><strong>Mining Operations</strong></div>
-          <p>Specialized logistics and support for mining operations and heavy industry.</p>
-          <span class="lm">Read More</span>
+          <div class="off-name"><strong>{{ langService.isEn() ? 'Operations & Exploitation' : 'Operation d exploitation' }}</strong></div>
+          <p>{{ langService.isEn() ? 'Operational support, brokerage, and promotion of concessions and assets.' : 'Appui operationnel, courtage et promotion de concessions et d actifs.' }}</p>
+          <span class="lm">{{ langService.isEn() ? 'Read More' : 'En savoir plus' }}</span>
         </a>
         <a [routerLink]="['/services', 'transport']" class="off-card">
           <div class="off-icon">
             <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 8h4l3 3v5h-7V8z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="5.5" cy="18.5" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="18.5" cy="18.5" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
           </div>
-          <div class="off-name"><strong>Transportation</strong></div>
-          <p>Road, rail, and multimodal transport solutions for efficient cargo movement.</p>
-          <span class="lm">Read More</span>
+          <div class="off-name"><strong>{{ langService.isEn() ? 'Transportation' : 'Transport' }}</strong></div>
+          <p>{{ langService.isEn() ? 'National and international transport solutions for people and freight.' : 'Solutions de transport national et international pour personnes et marchandises.' }}</p>
+          <span class="lm">{{ langService.isEn() ? 'Read More' : 'En savoir plus' }}</span>
         </a>
       </div>
 
@@ -146,47 +169,48 @@
           <div class="off-icon">
             <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
           </div>
-          <div class="off-name"><strong>Operation d'installation</strong></div>
-          <p>Commençant par la fabrication, nous faisons des importations et des exportations, des dédouanements des matériaux et des systèmes destinés aux activités et opérations immobilières décrites ci-dessus.</p>
-          <span class="lm">Read More</span>
+          <div class="off-name"><strong>{{ langService.isEn() ? 'Installation Operations' : 'Operation d installation' }}</strong></div>
+          <p>{{ langService.isEn() ? 'From manufacturing to installation, we handle imports, exports, and clearance of materials for real estate operations.' : 'De la fabrication a l installation, nous assurons importations, exportations et dedouanement des materiaux pour les operations immobilieres.' }}</p>
+          <span class="lm">{{ langService.isEn() ? 'Read More' : 'En savoir plus' }}</span>
         </a>
         <a [routerLink]="['/services', 'studies']" class="off-card">
           <div class="off-icon">
             <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
           </div>
-          <div class="off-name"><strong>Opérations d'études</strong></div>
-          <p>Nous faisons des prospections, des recherches d'exploitations et de transformation des substances minérales, ainsi que toutes operations de concentration, de traitement méttalurgique et chimique, de la commercialisation et celle de leurs dérivés pour notre compte et pour celui des tiers.</p>
-          <span class="lm">Read More</span>
+          <div class="off-name"><strong>{{ langService.isEn() ? 'Study Operations' : 'Operations d etudes' }}</strong></div>
+          <p>{{ langService.isEn() ? 'Prospecting, research, and transformation of mineral resources for our account and for third parties.' : 'Prospections, recherches et transformation des substances minerales pour notre compte et pour celui des tiers.' }}</p>
+          <span class="lm">{{ langService.isEn() ? 'Read More' : 'En savoir plus' }}</span>
         </a>
         <a [routerLink]="['/services', 'oil']" class="off-card">
           <div class="off-icon">
             <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
           </div>
-          <div class="off-name"><strong>Activités pétrolières</strong></div>
-          <p>Commençant par la fabrication nous faisons des importations et des exportations, des dédouanements de matériaux et des systèmes destinés aux activités et opérations immobilières décrites ci-dessus.</p>
-          <span class="lm">Read More</span>
+          <div class="off-name"><strong>{{ langService.isEn() ? 'Oil & Gas Activities' : 'Activites petrolieres' }}</strong></div>
+          <p>{{ langService.isEn() ? 'Materials, systems, and clearance support for oil and gas operations.' : 'Materiaux, systemes et dedouanement pour les operations petrolieres.' }}</p>
+          <span class="lm">{{ langService.isEn() ? 'Read More' : 'En savoir plus' }}</span>
         </a>
         <a [routerLink]="['/services', 'trade']" class="off-card">
           <div class="off-icon">
             <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 12h8" fill="none" stroke="currentColor" stroke-width="2"/></svg>
           </div>
-          <div class="off-name"><strong>Commerce général</strong></div>
-          <p>En partant de l'industrie au sens large du terme, nous travaillons aussi dans la foresterie, l'agriculture et l'élevage.</p>
-          <span class="lm">Read More</span>
+          <div class="off-name"><strong>{{ langService.isEn() ? 'General Trade' : 'Commerce general' }}</strong></div>
+          <p>{{ langService.isEn() ? 'Trade across industry, forestry, agriculture, and livestock sectors.' : 'Commerce couvrant l industrie, la foresterie, l agriculture et l elevage.' }}</p>
+          <span class="lm">{{ langService.isEn() ? 'Read More' : 'En savoir plus' }}</span>
         </a>
         <a [routerLink]="['/services', 'logistics']" class="off-card">
           <div class="off-icon">
             <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" fill="none" stroke="currentColor" stroke-width="2"/><polyline points="3.27 6.96 12 12.01 20.73 6.96" fill="none" stroke="currentColor" stroke-width="2"/><line x1="12" y1="22.08" x2="12" y2="12" stroke="currentColor" stroke-width="2"/></svg>
           </div>
-          <div class="off-name"><strong>Logistiques</strong></div>
-          <p>En étant dans le conseil et la conception nous sommes aussi dans la mise en oeuvre des réseaux logistiques au service de l'industrie, et du commerce, dans rationalisation, des systèmes logistiques existant, dans la prise en charge et gestion de tertiarisations globales des services en amont et en aval de la production.</p>
-          <span class="lm">Read More</span>
+          <div class="off-name"><strong>{{ langService.isEn() ? 'Logistics' : 'Logistiques' }}</strong></div>
+          <p>{{ langService.isEn() ? 'Design and optimization of logistics networks for industry and commerce.' : 'Conception et optimisation des reseaux logistiques pour l industrie et le commerce.' }}</p>
+          <span class="lm">{{ langService.isEn() ? 'Read More' : 'En savoir plus' }}</span>
         </a>
       </div>
 
       <div class="load-wrap">
         <button type="button" class="btn-load" (click)="toggleServices(); $event.preventDefault(); $event.stopPropagation()" [attr.aria-expanded]="showMoreServices">
-          {{ showMoreServices ? 'Show Less' : 'See More' }} <span class="arr">{{ showMoreServices ? '↑' : '↓' }}</span>
+          {{ showMoreServices ? (langService.isEn() ? 'Show Less' : 'Afficher moins') : (langService.isEn() ? 'See More' : 'Voir plus') }}
+          <span class="arr">{{ showMoreServices ? '↑' : '↓' }}</span>
         </button>
       </div>
     </div>
@@ -199,32 +223,32 @@
       <div class="why-port-img"></div>
       <div class="why-badge">
         <span class="why-badge-icon"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M16.5 9.4l-9-5.19M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" fill="none" stroke="currentColor" stroke-width="2"/><polyline points="3.27 6.96 12 12.01 20.73 6.96" fill="none" stroke="currentColor" stroke-width="2"/><line x1="12" y1="22.08" x2="12" y2="12" stroke="currentColor" stroke-width="2"/></svg></span>
-        Manage your products and service orders
+        {{ langService.isEn() ? 'Manage your properties and service requests' : 'Gerez vos biens et vos demandes de service' }}
       </div>
     </div>
     <div class="why-text-panel">
-      <h2>Why Choose Us</h2>
-      <p>Leverage agile frameworks to provide a robust synopsis for strategy foster collaborative thinking to further the overall value proposition.</p>
+      <h2>{{ langService.isEn() ? 'Why Choose Us' : 'Pourquoi nous choisir' }}</h2>
+      <p>{{ langService.isEn() ? 'We combine market knowledge, operational rigor, and responsive service to deliver results you can trust.' : 'Nous combinons connaissance du marche, rigueur operationnelle et reactivite pour des resultats fiables.' }}</p>
       <div class="why-feats">
         <div class="why-feat">
           <div class="feat-circle"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
           <div class="feat-body">
-            <h4>Safe Delivery</h4>
-            <p>Your cargo's safety is our top priority. We ensure secure handling and timely delivery at every step.</p>
+            <h4>{{ langService.isEn() ? 'Secure Execution' : 'Execution securisee' }}</h4>
+            <p>{{ langService.isEn() ? 'Your projects and assets are handled with care, compliance, and clear processes.' : 'Vos projets et actifs sont geres avec soin, conformite et transparence.' }}</p>
           </div>
         </div>
         <div class="why-feat">
           <div class="feat-circle"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
           <div class="feat-body">
-            <h4>Reliability</h4>
-            <p>Trust in our meticulous planning and execution for consistent, dependable results every time.</p>
+            <h4>{{ langService.isEn() ? 'Reliability' : 'Fiabilite' }}</h4>
+            <p>{{ langService.isEn() ? 'Structured planning and proactive communication keep every engagement on track.' : 'Une planification structuree et une communication proactive pour respecter les delais.' }}</p>
           </div>
         </div>
         <div class="why-feat">
           <div class="feat-circle"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><line x1="2" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="2"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
           <div class="feat-body">
-            <h4>Global Reach</h4>
-            <p>Our professional approach empowers your business to thrive in the competitive global shipping market.</p>
+            <h4>{{ langService.isEn() ? 'Local Expertise' : 'Expertise locale' }}</h4>
+            <p>{{ langService.isEn() ? 'Deep knowledge of the DRC market with the reach to support regional and international needs.' : 'Une connaissance approfondie du marche en RDC, avec une portee regionale et internationale.' }}</p>
           </div>
         </div>
       </div>
@@ -235,7 +259,7 @@
   <div class="sail">
     <div class="sail-bg"></div>
     <div class="sail-inner">
-      <h2>Let's Sail Together</h2>
+      <h2>{{ langService.isEn() ? "Let's Build Together" : 'Construisons ensemble' }}</h2>
     </div>
   </div>
 </div>
