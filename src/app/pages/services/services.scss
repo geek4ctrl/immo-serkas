@@ -64,6 +64,25 @@
   color: var(--text3);
   line-height: 1.7;
   max-width: 380px;
+  margin-bottom: 20px;
+}
+
+.btn-quote {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 24px;
+  background: var(--primary, #1e3a5f);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: #0d2137;
+    transform: translateY(-2px);
+  }
 }
 
 .svc-right {
@@ -188,6 +207,52 @@
   }
 }
 
+// Quote CTA Section
+.quote-cta-section {
+  background: linear-gradient(135deg, #1e3a5f 0%, #0d2137 100%);
+  padding: 80px 40px;
+  text-align: center;
+}
+
+.quote-cta-inner {
+  max-width: 700px;
+  margin: 0 auto;
+
+  h2 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 16px;
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+}
+
+.btn-quote-large {
+  display: inline-flex;
+  align-items: center;
+  padding: 18px 40px;
+  background: #16a34a;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(22, 163, 74, 0.4);
+
+  &:hover {
+    background: #15803d;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(22, 163, 74, 0.5);
+  }
+}
+
 @media (max-width: 1100px) {
   .services-overlay {
     margin-top: 120px;
@@ -219,6 +284,14 @@
   .offerings-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .quote-cta-section {
+    padding: 60px 24px;
+
+    h2 {
+      font-size: 1.875rem;
+    }
+  }
 }
 
 @media (max-width: 700px) {
@@ -237,5 +310,22 @@
 
   .offerings-grid {
     grid-template-columns: 1fr;
+  }
+
+  .quote-cta-section {
+    padding: 48px 20px;
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  .btn-quote-large {
+    padding: 16px 32px;
+    font-size: 1rem;
   }
 }
