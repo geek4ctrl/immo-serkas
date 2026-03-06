@@ -5,9 +5,9 @@
       <div class="page-hero-bg"></div>
       <div class="page-hero-grad"></div>
       <div class="hero-content">
-        <h1>{{ svc.name }}</h1>
+        <h1>{{ langService.isEn() ? svc.name : (svc.frName || svc.name) }}</h1>
         <div class="hero-divider"></div>
-        <p>{{ svc.description }}</p>
+        <p>{{ langService.isEn() ? svc.description : (svc.frDescription || svc.description) }}</p>
       </div>
     </section>
 
@@ -16,24 +16,24 @@
     <!-- Content -->
     <section class="page-content">
       <div class="section-inner">
-        <a routerLink="/services" class="back-link">← Back to Services</a>
+        <a routerLink="/services" class="back-link">{{ langService.isEn() ? '← Back to Services' : '← Retour aux services' }}</a>
         <div class="detail-intro">
           <div class="detail-icon">
             <app-service-icon [icon]="svc.icon" />
           </div>
           @if (svc.tagline) {
-            <h2 class="detail-tagline">{{ svc.tagline }}</h2>
+            <h2 class="detail-tagline">{{ langService.isEn() ? svc.tagline : (svc.frTagline || svc.tagline) }}</h2>
           }
           @if (svc.subTagline) {
-            <p class="detail-sub">{{ svc.subTagline }}</p>
+            <p class="detail-sub">{{ langService.isEn() ? svc.subTagline : (svc.frSubTagline || svc.subTagline) }}</p>
           }
         </div>
 
         <!-- Bullets layout -->
-        @if (svc.bullets && svc.bullets.length) {
+        @if ((langService.isEn() ? svc.bullets : (svc.frBullets || svc.bullets)) && (langService.isEn() ? svc.bullets : (svc.frBullets || svc.bullets))?.length) {
           <div class="detail-block">
             <ul class="detail-bullets">
-              @for (item of svc.bullets; track item) {
+              @for (item of (langService.isEn() ? svc.bullets : (svc.frBullets || svc.bullets)); track item) {
                 <li>{{ item }}</li>
               }
             </ul>
@@ -41,10 +41,10 @@
         }
 
         <!-- Objective (Tracking) -->
-        @if (svc.objective) {
+        @if (svc.objective || svc.frObjective) {
           <div class="detail-block objective-block">
-            <h3>Our objective</h3>
-            <p>{{ svc.objective }}</p>
+            <h3>{{ langService.isEn() ? 'Our objective' : 'Notre objectif' }}</h3>
+            <p>{{ langService.isEn() ? (svc.objective || '') : (svc.frObjective || svc.objective || '') }}</p>
           </div>
         }
 
@@ -53,30 +53,30 @@
           <div class="section-cards">
             @for (sec of svc.sections; track sec.title) {
               <div class="section-card">
-                <h4>{{ sec.title }}</h4>
-                <p>{{ sec.description }}</p>
+                <h4>{{ langService.isEn() ? sec.title : (sec.frTitle || sec.title) }}</h4>
+                <p>{{ langService.isEn() ? sec.description : (sec.frDescription || sec.description) }}</p>
               </div>
             }
           </div>
         }
 
         <!-- Full content -->
-        @if (svc.fullContent && !svc.properties?.length) {
+        @if ((svc.fullContent || svc.frFullContent) && !svc.properties?.length) {
           <div class="detail-block">
-            <p class="detail-full">{{ svc.fullContent }}</p>
+            <p class="detail-full">{{ langService.isEn() ? (svc.fullContent || '') : (svc.frFullContent || svc.fullContent || '') }}</p>
           </div>
         }
 
         <!-- Property listings (Immobilier) -->
         @if (svc.properties && svc.properties.length) {
           <div class="property-listings">
-            <h3 class="listings-title">We offer</h3>
+            <h3 class="listings-title">{{ langService.isEn() ? 'We offer' : 'Nos offres' }}</h3>
             <div class="property-grid">
               @for (prop of svc.properties; track prop.price) {
                 <div class="property-card">
-                  <h4>{{ prop.title }}</h4>
+                  <h4>{{ langService.isEn() ? prop.title : (prop.frTitle || prop.title) }}</h4>
                   <ul class="prop-specs">
-                    @for (s of prop.specs; track s) {
+                    @for (s of (langService.isEn() ? prop.specs : (prop.frSpecs || prop.specs)); track s) {
                       <li>{{ s }}</li>
                     }
                   </ul>
@@ -84,7 +84,7 @@
                   @if (prop.address) {
                     <p class="prop-address">{{ prop.address }}</p>
                   }
-                  <a routerLink="/contact" class="prop-link">View more</a>
+                  <a routerLink="/contact" class="prop-link">{{ langService.isEn() ? 'View more' : 'Voir plus' }}</a>
                 </div>
               }
             </div>
@@ -93,7 +93,7 @@
 
         <!-- CTA -->
         <div class="detail-cta">
-          <a routerLink="/contact" class="btn-navy">Contact Us</a>
+          <a routerLink="/contact" class="btn-navy">{{ langService.isEn() ? 'Contact Us' : 'Contact' }}</a>
         </div>
       </div>
     </section>
@@ -102,10 +102,10 @@
   <div class="service-detail-page">
     <section class="page-content">
       <div class="section-inner">
-        <a routerLink="/services" class="back-link">← Back to Services</a>
+        <a routerLink="/services" class="back-link">{{ langService.isEn() ? '← Back to Services' : '← Retour aux services' }}</a>
         <div class="detail-block">
-          <p class="detail-full">Service not found.</p>
-          <a routerLink="/services" class="btn-navy">View all services</a>
+          <p class="detail-full">{{ langService.isEn() ? 'Service not found.' : 'Service introuvable.' }}</p>
+          <a routerLink="/services" class="btn-navy">{{ langService.isEn() ? 'View all services' : 'Voir tous les services' }}</a>
         </div>
       </div>
     </section>

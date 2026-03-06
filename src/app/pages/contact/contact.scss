@@ -202,4 +202,28 @@
   .page-content {
     padding: 40px 0;
   }
+
+  .contact-details,
+  .contact-form-col,
+  .map-col {
+    padding: 1.5rem;
+  }
+
+  .contact-details h2,
+  .contact-form-col h2,
+  .map-col h2 {
+    font-size: 1.1rem;
+  }
+
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    padding: 0.9rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .btn-submit {
+    padding: 12px 24px;
+    font-size: 0.95rem;
+  }
 }

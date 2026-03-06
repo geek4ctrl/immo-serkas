@@ -4,9 +4,9 @@
     <div class="page-hero-bg"></div>
     <div class="page-hero-grad"></div>
     <div class="hero-content">
-      <h1>Our Services</h1>
+      <h1>{{ langService.isEn() ? 'Our Services' : 'Nos services' }}</h1>
       <div class="hero-divider"></div>
-      <p>Discover our comprehensive service offerings</p>
+      <p>{{ langService.isEn() ? 'Discover our comprehensive service offerings' : 'Decouvrez nos services complets et integres' }}</p>
     </div>
   </section>
 
@@ -18,11 +18,18 @@
     <div class="services-overlay">
       <div class="services-card">
         <div class="svc-left">
-          <h3>Our Services</h3>
-          <p class="sub">Experience unique &amp; best class of chartering services, including Time Charter and Voyage Charter options.</p>
-          <h4>Our specialized subsidiaries</h4>
-          <p class="sub2">April Steel Force, Energy, Heavy Lift — ensure we cater to your cargo's unique requirements. Pre-move survey and door-to-door delivery across industries.</p>
-          <a routerLink="/quote-request" class="btn-quote">Request a Quote →</a>
+          <h3>{{ langService.isEn() ? 'Our Services' : 'Nos services' }}</h3>
+          <ng-container *ngIf="langService.isEn(); else servicesFr">
+            <p class="sub">From real estate to logistics, we deliver reliable services for individuals, investors, and businesses.</p>
+            <h4>Specialized solutions</h4>
+            <p class="sub2">Customs clearance, transport, property management, and operational support tailored to your sector.</p>
+          </ng-container>
+          <ng-template #servicesFr>
+            <p class="sub">De l immobilier a la logistique, nous offrons des services fiables aux particuliers, investisseurs et entreprises.</p>
+            <h4>Solutions specialisees</h4>
+            <p class="sub2">Dedouanement, transport, gestion immobiliere et appui operationnel adaptes a votre secteur.</p>
+          </ng-template>
+          <a routerLink="/quote-request" class="btn-quote">{{ langService.isEn() ? 'Request a Quote →' : 'Demander un devis →' }}</a>
         </div>
         <div class="svc-right">
           <div class="svc-img svc-img-top">
@@ -40,7 +47,12 @@
   <section class="offerings-section">
     <div class="offerings-inner">
       <h2 class="offerings-title">
-        <span class="accent">Our Offerings:</span> Making Your Move Effortless
+        <ng-container *ngIf="langService.isEn(); else offeringsFr">
+          <span class="accent">Our Offerings:</span> Make Your Projects Effortless
+        </ng-container>
+        <ng-template #offeringsFr>
+          <span class="accent">Nos offres :</span> Simplifier vos projets
+        </ng-template>
       </h2>
       <div class="offerings-grid">
         @for (s of services; track s.id) {
@@ -48,9 +60,9 @@
             <div class="offering-icon">
               <app-service-icon [icon]="s.icon" />
             </div>
-            <h3>{{ s.name }}</h3>
-            <p>{{ s.description }}</p>
-            <span class="read-more">Read More →</span>
+            <h3>{{ langService.isEn() ? s.name : (s.frName || s.name) }}</h3>
+            <p>{{ langService.isEn() ? s.description : (s.frDescription || s.description) }}</p>
+            <span class="read-more">{{ langService.isEn() ? 'Read More →' : 'En savoir plus →' }}</span>
           </a>
         }
       </div>
@@ -60,9 +72,9 @@
   <!-- CTA Section -->
   <section class="quote-cta-section">
     <div class="quote-cta-inner">
-      <h2>Ready to Ship?</h2>
-      <p>Get a customized quote for your shipping needs. Our team is ready to help you with tailored logistics solutions.</p>
-      <a routerLink="/quote-request" class="btn-quote-large">Request a Free Quote</a>
+      <h2>{{ langService.isEn() ? 'Ready to get started?' : 'Pret a demarrer ?' }}</h2>
+      <p>{{ langService.isEn() ? 'Get a tailored proposal for your real estate or operational needs. Our team is ready to help.' : 'Obtenez une proposition adaptee a vos besoins immobiliers ou operationnels. Notre equipe est prete a vous accompagner.' }}</p>
+      <a routerLink="/quote-request" class="btn-quote-large">{{ langService.isEn() ? 'Request a Free Quote' : 'Demander un devis gratuit' }}</a>
     </div>
   </section>
 </div>
