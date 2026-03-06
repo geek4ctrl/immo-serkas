@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { QuoteRequestService } from '../../services/quote-request.service';
-import { QuoteRequest } from '../../models/quote-request.model';
+import { QuoteRequest, CargoFile } from '../../models/quote-request.model';
+import { PhoneMaskDirective } from '../../directives/phone-mask.directive';
+import { AddressAutocompleteComponent, AddressData } from '../../components/address-autocomplete/address-autocomplete';
+import { FileUploadComponent, UploadedFile } from '../../components/file-upload/file-upload';
 
 @Component({
   selector: 'app-quote-request',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterLink],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink, PhoneMaskDirective, AddressAutocompleteComponent, FileUploadComponent],
   templateUrl: './quote-request.html',
   styleUrl: './quote-request.scss'
 })
@@ -18,7 +21,9 @@ export class QuoteRequestPage {
   submitSuccess = false;
   submitError = false;
   currentStep = 1;
-  totalSteps = 4;
+  totalSteps = 5;
+
+  uploadedFiles: UploadedFile[] = [];
 
   serviceTypes = [
     { value: 'overseas', label: 'Overseas Shipping' },
@@ -67,7 +72,7 @@ export class QuoteRequestPage {
       firstName: ['', [Validators.required, Validators.minLength(2)]],
       lastName: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
-      phone: ['', [Validators.required, Validators.pattern(/^\+?[\d\s-()]{10,}$/)]],
+      phone: ['', [Validators.required, Validators.pattern(/^\+[\d\s]{8,}$/)]],
       companyName: [''],
 
       // Step 2: Service Type
@@ -99,7 +104,7 @@ export class QuoteRequestPage {
         country: ['', Validators.required],
         postalCode: ['', Validators.required],
         contactName: ['', Validators.required],
-        contactPhone: ['', [Validators.required, Validators.pattern(/^\+?[\d\s-()]{10,}$/)]]
+        contactPhone: ['', [Validators.required, Validators.pattern(/^\+[\d\s]{8,}$/)]]
       }),
 
       deliveryLocation: this.fb.group({
@@ -108,9 +113,10 @@ export class QuoteRequestPage {
         country: ['', Validators.required],
         postalCode: ['', Validators.required],
         contactName: ['', Validators.required],
-        contactPhone: ['', [Validators.required, Validators.pattern(/^\+?[\d\s-()]{10,}$/)]]
+        contactPhone: ['', [Validators.required, Validators.pattern(/^\+[\d\s]{8,}$/)]]
       }),
 
+      // Step 5: Additional
       additionalNotes: ['']
     });
   }
@@ -125,6 +131,28 @@ export class QuoteRequestPage {
 
   get deliveryLocationForm(): FormGroup {
     return this.quoteForm.get('deliveryLocation') as FormGroup;
+  }
+
+  onPickupAddressSelected(addressData: AddressData): void {
+    this.pickupLocationForm.patchValue({
+      address: addressData.address,
+      city: addressData.city,
+      country: addressData.country,
+      postalCode: addressData.postalCode
+    });
+  }
+
+  onDeliveryAddressSelected(addressData: AddressData): void {
+    this.deliveryLocationForm.patchValue({
+      address: addressData.address,
+      city: addressData.city,
+      country: addressData.country,
+      postalCode: addressData.postalCode
+    });
+  }
+
+  onFilesChanged(files: UploadedFile[]): void {
+    this.uploadedFiles = files;
   }
 
   nextStep(): void {
@@ -156,6 +184,8 @@ export class QuoteRequestPage {
         return this.cargoDetailsForm.valid;
       case 4:
         return this.pickupLocationForm.valid && this.deliveryLocationForm.valid;
+      case 5:
+        return true; // Step 5 is optional
       default:
         return false;
     }
@@ -166,7 +196,16 @@ export class QuoteRequestPage {
       this.isSubmitting = true;
       this.submitError = false;
 
-      const request: QuoteRequest = this.quoteForm.value;
+      const request: QuoteRequest = {
+        ...this.quoteForm.value,
+        attachments: this.uploadedFiles.map(file => ({
+          id: file.id,
+          name: file.name,
+          size: file.size,
+          type: file.type,
+          dataUrl: file.dataUrl
+        } as CargoFile))
+      };
 
       this.quoteService.submitQuoteRequest(request).subscribe({
         next: () => {
@@ -183,6 +222,7 @@ export class QuoteRequestPage {
 
   resetForm(): void {
     this.quoteForm.reset();
+    this.uploadedFiles = [];
     this.currentStep = 1;
     this.submitSuccess = false;
     this.submitError = false;

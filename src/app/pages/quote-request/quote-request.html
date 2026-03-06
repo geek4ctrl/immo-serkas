@@ -51,6 +51,11 @@
           <span class="step-number">4</span>
           <span class="step-label">Locations</span>
         </div>
+        <div class="step-connector" [class.completed]="currentStep > 4"></div>
+        <div class="step" [class.active]="currentStep >= 5" [class.current]="currentStep === 5" (click)="goToStep(5)">
+          <span class="step-number">5</span>
+          <span class="step-label">Files</span>
+        </div>
       </div>
 
       <!-- Step 1: Personal Information -->
@@ -85,9 +90,9 @@
           </div>
           <div class="form-group">
             <label for="phone">Phone Number *</label>
-            <input type="tel" id="phone" formControlName="phone" placeholder="+1 234 567 890">
+            <input type="tel" id="phone" formControlName="phone" placeholder="+1 234 567 890" appPhoneMask>
             <div *ngIf="quoteForm.get('phone')?.invalid && quoteForm.get('phone')?.touched" class="error-text">
-              Valid phone number is required
+              Valid phone number is required (e.g., +1 234 567 890)
             </div>
           </div>
         </div>
@@ -218,7 +223,7 @@
       <!-- Step 4: Locations -->
       <div *ngIf="currentStep === 4" class="form-step">
         <h2>Pickup & Delivery Locations</h2>
-        <p class="step-description">Provide complete address details for pickup and delivery.</p>
+        <p class="step-description">Provide complete address details for pickup and delivery. Start typing to see address suggestions.</p>
 
         <!-- Pickup Location -->
         <div class="location-section">
@@ -249,7 +254,7 @@
               </div>
               <div class="form-group">
                 <label>Contact Phone *</label>
-                <input type="tel" formControlName="contactPhone" placeholder="+1 234 567 890">
+                <input type="tel" formControlName="contactPhone" placeholder="+1 234 567 890" appPhoneMask>
               </div>
             </div>
           </div>
@@ -284,10 +289,28 @@
               </div>
               <div class="form-group">
                 <label>Contact Phone *</label>
-                <input type="tel" formControlName="contactPhone" placeholder="+1 234 567 890">
+                <input type="tel" formControlName="contactPhone" placeholder="+1 234 567 890" appPhoneMask>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- Step 5: File Upload -->
+      <div *ngIf="currentStep === 5" class="form-step">
+        <h2>Attachments</h2>
+        <p class="step-description">Upload photos or documents related to your cargo (optional).</p>
+
+        <div class="form-group">
+          <label>Cargo Photos / Documents</label>
+          <app-file-upload
+            [multiple]="true"
+            [maxFiles]="5"
+            [maxFileSize]="10 * 1024 * 1024"
+            acceptedTypes="image/*,.pdf,.doc,.docx,.xls,.xlsx"
+            acceptedTypesLabel="Images, PDF, Word, Excel"
+            (filesChanged)="onFilesChanged($event)">
+          </app-file-upload>
         </div>
 
         <div class="form-group">
