@@ -166,8 +166,29 @@
 }
 
 @media (max-width: 700px) {
+  .page-content {
+    padding: 48px 0;
+  }
+
+  .intro {
+    font-size: 0.98rem;
+  }
+
+  .about-card {
+    padding: 1.5rem;
+  }
+
+  .about-card h2 {
+    font-size: 1.1rem;
+  }
+
+  .section-title {
+    font-size: 1.25rem;
+  }
+
   .founder-card {
     grid-template-columns: 1fr;
+    padding: 1.5rem;
   }
 
   .founder-icon-wrap {

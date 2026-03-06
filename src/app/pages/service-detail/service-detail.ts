@@ -2,6 +2,7 @@ import { Component, computed, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ServiceIconComponent } from '../../components/service-icon/service-icon';
 import { ALL_SERVICES } from '../../data/services.data';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-service-detail',
@@ -12,6 +13,8 @@ import { ALL_SERVICES } from '../../data/services.data';
 })
 export class ServiceDetail {
   id = input<string | null>(null);
+
+  constructor(public langService: LanguageService) {}
 
   service = computed(() => {
     const routeId = this.id();

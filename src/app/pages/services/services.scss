@@ -304,12 +304,33 @@
     padding: 28px 24px 36px;
   }
 
+  .svc-left h3 {
+    font-size: 1.1rem;
+  }
+
+  .svc-left h4 {
+    font-size: 0.88rem;
+  }
+
+  .btn-quote {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+
   .offerings-section {
     padding: 48px 20px;
   }
 
+  .offerings-title {
+    font-size: 1.45rem;
+  }
+
   .offerings-grid {
     grid-template-columns: 1fr;
+  }
+
+  .offering-card {
+    padding: 22px 20px;
   }
 
   .quote-cta-section {

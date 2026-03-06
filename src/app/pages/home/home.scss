@@ -789,8 +789,36 @@ button.btn-green-light {
 }
 
 @media (max-width: 700px) {
+  .hero-inner {
+    padding: 40px 20px;
+  }
+
+  .hero-text h1 {
+    font-size: 2.1rem;
+  }
+
+  .hero-text p {
+    font-size: 0.88rem;
+  }
+
+  .hero-badge {
+    font-size: 0.6rem;
+  }
+
+  .btn-orange {
+    padding: 12px 22px;
+  }
+
   .about {
     padding: 40px 20px;
+  }
+
+  .about-text h2 {
+    font-size: 1.35rem;
+  }
+
+  .about-text p.desc {
+    font-size: 0.85rem;
   }
 
   .services-overlay {
@@ -806,6 +834,15 @@ button.btn-green-light {
     padding: 0 20px 40px;
   }
 
+  .off-title {
+    font-size: 1.4rem;
+  }
+
+  .btn-green,
+  .btn-green-light {
+    padding: 10px 18px;
+  }
+
   .off-hdr {
     flex-direction: column;
     align-items: flex-start;
@@ -816,8 +853,16 @@ button.btn-green-light {
     grid-template-columns: 1fr;
   }
 
+  .off-card {
+    padding: 18px 18px;
+  }
+
   .why-text-panel {
     padding: 40px 24px;
+  }
+
+  .why-text-panel h2 {
+    font-size: 1.5rem;
   }
 
   .sail-inner h2 {

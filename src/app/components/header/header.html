@@ -1,13 +1,28 @@
 <header class="header">
-  <a routerLink="/home" class="logo">
-    <span class="logo-icon"></span>
-    <span class="logo-text">IMMO <span class="logo-sub">SERKAS</span></span>
-  </a>
-  <nav class="nav">
-    <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
-    <a routerLink="/about" routerLinkActive="active">About Us</a>
-    <a routerLink="/services" routerLinkActive="active">Services</a>
-    <a routerLink="/contact" routerLinkActive="active">Contact</a>
+  <div class="header-top">
+    <a routerLink="/home" class="logo" (click)="closeMenu()">
+      <span class="logo-icon"></span>
+      <span class="logo-text">IMMO <span class="logo-sub">SERKAS</span></span>
+    </a>
+    <button
+      type="button"
+      class="menu-toggle"
+      (click)="toggleMenu()"
+      [class.is-open]="menuOpen"
+      [attr.aria-expanded]="menuOpen"
+      aria-controls="primary-nav"
+      aria-label="Toggle navigation"
+    >
+      <span class="menu-bar"></span>
+      <span class="menu-bar"></span>
+      <span class="menu-bar"></span>
+    </button>
+  </div>
+  <nav class="nav" id="primary-nav" [class.is-open]="menuOpen">
+    <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">{{ langService.isEn() ? 'Home' : 'Accueil' }}</a>
+    <a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">{{ langService.isEn() ? 'About Us' : 'A propos' }}</a>
+    <a routerLink="/services" routerLinkActive="active" (click)="closeMenu()">{{ langService.isEn() ? 'Services' : 'Services' }}</a>
+    <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">{{ langService.isEn() ? 'Contact' : 'Contact' }}</a>
     <div class="lang-dropdown">
       <select [value]="langService.currentLang()" (change)="onLangChange($event)" class="lang-select" aria-label="Language">
         <option value="en">English</option>
