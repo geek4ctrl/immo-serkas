@@ -46,6 +46,15 @@ a {
   color: inherit;
 }
 
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -158,5 +167,27 @@ img {
   &:hover {
     background: var(--accent-hover);
     transform: translateY(-1px);
+  }
+}
+
+@media (max-width: 700px) {
+  button,
+  .btn-navy,
+  .btn-accent,
+  .btn-orange,
+  .btn-green,
+  .btn-green-light,
+  .btn-quote,
+  .btn-quote-large,
+  .btn-submit,
+  .menu-toggle,
+  .nav a {
+    min-height: 44px;
+  }
+
+  input,
+  select,
+  textarea {
+    min-height: 44px;
   }
 }
