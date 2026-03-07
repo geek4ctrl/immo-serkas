@@ -56,19 +56,91 @@
       <!-- Center: Contact Form -->
       <div class="contact-form-col">
         <h2>{{ langService.isEn() ? 'Contact Form' : 'Formulaire de contact' }}</h2>
-        <form class="contact-form" (submit)="onSubmit($event)">
-          <input type="text" [placeholder]="langService.isEn() ? 'Your Full Name *' : 'Nom complet *'" required>
-          <input type="tel" [placeholder]="langService.isEn() ? 'Your Phone Number *' : 'Numero de telephone *'" required>
-          <input type="email" [placeholder]="langService.isEn() ? 'Your Email Address *' : 'Adresse e-mail *'" required>
-          <select>
-            <option value="">{{ langService.isEn() ? 'Select an item' : 'Selectionner un sujet' }}</option>
-            <option value="services">{{ langService.isEn() ? 'General Inquiry' : 'Demande generale' }}</option>
-            <option value="shipping">{{ langService.isEn() ? 'Shipping & Logistics' : 'Transport et logistique' }}</option>
-            <option value="real-estate">{{ langService.isEn() ? 'Real Estate' : 'Immobilier' }}</option>
-            <option value="other">{{ langService.isEn() ? 'Other' : 'Autre' }}</option>
-          </select>
-          <textarea [placeholder]="langService.isEn() ? 'Your Message *' : 'Votre message *'" rows="5" required></textarea>
-          <button type="submit" class="btn-submit">{{ langService.isEn() ? 'Submit' : 'Envoyer' }}</button>
+        <form class="contact-form" #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" novalidate>
+          <div class="field-group">
+            <input
+              type="text"
+              name="fullName"
+              [(ngModel)]="fullName"
+              #fullNameModel="ngModel"
+              [placeholder]="langService.isEn() ? 'Your Full Name *' : 'Nom complet *'"
+              required
+            >
+            <div class="field-error" *ngIf="fullNameModel.invalid && (fullNameModel.touched || contactForm.submitted)">
+              {{ langService.isEn() ? 'Please enter your full name.' : 'Veuillez saisir votre nom complet.' }}
+            </div>
+          </div>
+
+          <div class="field-group">
+            <input
+              type="tel"
+              name="phone"
+              [(ngModel)]="phone"
+              #phoneModel="ngModel"
+              [placeholder]="langService.isEn() ? 'Your Phone Number *' : 'Numero de telephone *'"
+              required
+              pattern="^[0-9+()\s-]{7,}$"
+            >
+            <div class="field-error" *ngIf="phoneModel.invalid && (phoneModel.touched || contactForm.submitted)">
+              {{ langService.isEn() ? 'Enter a valid phone number.' : 'Entrez un numero de telephone valide.' }}
+            </div>
+          </div>
+
+          <div class="field-group">
+            <input
+              type="email"
+              name="email"
+              [(ngModel)]="email"
+              #emailModel="ngModel"
+              [placeholder]="langService.isEn() ? 'Your Email Address *' : 'Adresse e-mail *'"
+              required
+              email
+            >
+            <div class="field-error" *ngIf="emailModel.invalid && (emailModel.touched || contactForm.submitted)">
+              {{ langService.isEn() ? 'Enter a valid email address.' : 'Entrez une adresse e-mail valide.' }}
+            </div>
+          </div>
+
+          <div class="field-group">
+            <select name="topic" [(ngModel)]="topic" #topicModel="ngModel" required>
+              <option value="">{{ langService.isEn() ? 'Select an item' : 'Selectionner un sujet' }}</option>
+              <option value="services">{{ langService.isEn() ? 'General Inquiry' : 'Demande generale' }}</option>
+              <option value="shipping">{{ langService.isEn() ? 'Shipping & Logistics' : 'Transport et logistique' }}</option>
+              <option value="real-estate">{{ langService.isEn() ? 'Real Estate' : 'Immobilier' }}</option>
+              <option value="other">{{ langService.isEn() ? 'Other' : 'Autre' }}</option>
+            </select>
+            <div class="field-error" *ngIf="topicModel.invalid && (topicModel.touched || contactForm.submitted)">
+              {{ langService.isEn() ? 'Please select a topic.' : 'Veuillez selectionner un sujet.' }}
+            </div>
+          </div>
+
+          <div class="field-group">
+            <textarea
+              name="message"
+              [(ngModel)]="message"
+              #messageModel="ngModel"
+              [placeholder]="langService.isEn() ? 'Your Message *' : 'Votre message *'"
+              rows="5"
+              required
+            ></textarea>
+            <div class="field-error" *ngIf="messageModel.invalid && (messageModel.touched || contactForm.submitted)">
+              {{ langService.isEn() ? 'Please enter your message.' : 'Veuillez saisir votre message.' }}
+            </div>
+          </div>
+
+          <div class="form-success" *ngIf="showSuccess" aria-live="polite">
+            <div class="success-text">
+              <span class="success-icon" aria-hidden="true"></span>
+              {{ langService.isEn() ? 'Thanks! Your message has been sent.' : 'Merci ! Votre message a ete envoye.' }}
+            </div>
+            <button type="button" class="success-dismiss" (click)="dismissSuccess()">
+              {{ langService.isEn() ? 'Dismiss' : 'Fermer' }}
+            </button>
+          </div>
+
+          <button type="submit" class="btn-submit" [disabled]="contactForm.invalid">
+            {{ langService.isEn() ? 'Submit' : 'Envoyer' }}
+          </button>
         </form>
       </div>
 
