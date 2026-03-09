@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { QuoteRequestService } from '../../services/quote-request.service';
+import { LanguageService } from '../../services/language.service';
 import { QuoteRequest, CargoFile } from '../../models/quote-request.model';
 import { PhoneMaskDirective } from '../../directives/phone-mask.directive';
 import { AddressAutocompleteComponent, AddressData } from '../../components/address-autocomplete/address-autocomplete';
@@ -61,7 +62,8 @@ export class QuoteRequestPage {
 
   constructor(
     private fb: FormBuilder,
-    private quoteService: QuoteRequestService
+    private quoteService: QuoteRequestService,
+    public langService: LanguageService
   ) {
     this.quoteForm = this.createForm();
   }

@@ -20,7 +20,7 @@
   </div>
   <nav class="nav" id="primary-nav" [class.is-open]="menuOpen">
     <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">{{ langService.isEn() ? 'Home' : 'Accueil' }}</a>
-    <a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">{{ langService.isEn() ? 'About Us' : 'A propos' }}</a>
+    <a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">{{ langService.isEn() ? 'About Us' : 'À propos' }}</a>
     <a routerLink="/services" routerLinkActive="active" (click)="closeMenu()">{{ langService.isEn() ? 'Services' : 'Services' }}</a>
     <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">{{ langService.isEn() ? 'Contact' : 'Contact' }}</a>
     <div class="lang-dropdown">
