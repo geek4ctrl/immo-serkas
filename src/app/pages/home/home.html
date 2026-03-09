@@ -7,11 +7,11 @@
       <div class="hero-text">
         <span class="hero-badge">{{ langService.isEn() ? 'WELCOME TO' : 'BIENVENUE CHEZ' }}</span>
         <ng-container *ngIf="langService.isEn(); else heroFr">
-          <h1>Welcome to<br/>Serkas Immo</h1>
+          <h1>Welcome to<br/>Immo Serkas</h1>
           <p>Real estate, logistics, and trade services that help you move, build, and grow with confidence.</p>
         </ng-container>
         <ng-template #heroFr>
-          <h1>Bienvenue chez<br/>Serkas Immo</h1>
+          <h1>Bienvenue chez<br/>Immo Serkas</h1>
           <p>Des services immobiliers, logistiques et commerciaux pour avancer avec confiance.</p>
         </ng-template>
         <a routerLink="/services" class="btn-orange">{{ langService.isEn() ? 'Explore Services' : 'Voir nos services' }} <span class="arr">→</span></a>
@@ -35,10 +35,10 @@
       <div class="about-text">
         <h2>{{ langService.isEn() ? 'About Us' : 'À propos' }}</h2>
         <ng-container *ngIf="langService.isEn(); else aboutFr">
-          <p class="desc">Serkas Immo is a multidisciplinary group delivering real estate, transport, and operational services across the DRC. We combine local expertise with reliable execution to support individuals and businesses.</p>
+          <p class="desc">Immo Serkas is a multidisciplinary group delivering real estate, transport, and operational services across the DRC. We combine local expertise with reliable execution to support individuals and businesses.</p>
         </ng-container>
         <ng-template #aboutFr>
-          <p class="desc">Serkas Immo est un groupe pluridisciplinaire offrant des services immobiliers, de transport et d'exploitation en RDC. Nous allions expertise locale et exécution fiable pour accompagner particuliers et entreprises.</p>
+          <p class="desc">Immo Serkas est un groupe pluridisciplinaire offrant des services immobiliers, de transport et d'exploitation en RDC. Nous allions expertise locale et exécution fiable pour accompagner particuliers et entreprises.</p>
         </ng-template>
         <div class="stats">
           <div class="stat">
@@ -117,7 +117,7 @@
           <div class="off-icon">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
           </div>
-          <div class="off-name"><strong>{{ langService.isEn() ? 'Customs Clearance' : 'Dedouanement' }}</strong></div>
+          <div class="off-name"><strong>{{ langService.isEn() ? 'Customs Clearance' : 'Dédouanement' }}</strong></div>
           <p>{{ langService.isEn() ? 'Import/export documentation and clearance for goods and equipment.' : "Documents et formalités d'import-export pour vos biens et équipements." }}</p>
           <span class="lm">{{ langService.isEn() ? 'Read More' : 'En savoir plus' }}</span>
         </a>
