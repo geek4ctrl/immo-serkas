@@ -6,13 +6,13 @@ import { QuoteRequestService } from '../../services/quote-request.service';
 import { LanguageService } from '../../services/language.service';
 import { QuoteRequest, CargoFile } from '../../models/quote-request.model';
 import { PhoneMaskDirective } from '../../directives/phone-mask.directive';
-import { AddressAutocompleteComponent, AddressData } from '../../components/address-autocomplete/address-autocomplete';
+
 import { FileUploadComponent, UploadedFile } from '../../components/file-upload/file-upload';
 
 @Component({
   selector: 'app-quote-request',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterLink, PhoneMaskDirective, AddressAutocompleteComponent, FileUploadComponent],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink, PhoneMaskDirective, FileUploadComponent],
   templateUrl: './quote-request.html',
   styleUrl: './quote-request.scss'
 })
@@ -133,24 +133,6 @@ export class QuoteRequestPage {
 
   get deliveryLocationForm(): FormGroup {
     return this.quoteForm.get('deliveryLocation') as FormGroup;
-  }
-
-  onPickupAddressSelected(addressData: AddressData): void {
-    this.pickupLocationForm.patchValue({
-      address: addressData.address,
-      city: addressData.city,
-      country: addressData.country,
-      postalCode: addressData.postalCode
-    });
-  }
-
-  onDeliveryAddressSelected(addressData: AddressData): void {
-    this.deliveryLocationForm.patchValue({
-      address: addressData.address,
-      city: addressData.city,
-      country: addressData.country,
-      postalCode: addressData.postalCode
-    });
   }
 
   onFilesChanged(files: UploadedFile[]): void {
