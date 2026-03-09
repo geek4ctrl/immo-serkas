@@ -4,7 +4,7 @@ export type Language = 'en' | 'fr';
 
 @Injectable({ providedIn: 'root' })
 export class LanguageService {
-  currentLang = signal<Language>('en');
+  currentLang = signal<Language>('fr');
 
   setLanguage(lang: Language): void {
     this.currentLang.set(lang);
