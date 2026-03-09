@@ -68,7 +68,7 @@ export const ALL_SERVICES: ServiceItem[] = [
     name: 'Real Estate',
     description: 'Comprehensive real estate solutions for residential and commercial property needs.',
     frName: 'Immobilier',
-    frDescription: 'Solutions immobilieres pour besoins residentiels et commerciaux.',
+    frDescription: 'Solutions immobilières pour besoins résidentiels et commerciaux.',
     icon: 'house',
     tagline: 'We offer apartments and offices on Boulevard du 30 Juin.',
     frTagline: 'Nous proposons des appartements et des bureaux sur le boulevard du 30 Juin.',
