@@ -1,6 +1,6 @@
-# Serkas Immo - Angular Website
+# Immo Serkas - Angular Website
 
-A modern Angular 21 website for Serkas Immo Real Estate, featuring Home, About, Services, and Contact pages.
+A modern Angular 21 website for Immo Serkas Real Estate, featuring Home, About, Services, and Contact pages.
 
 ## Pages
 
