@@ -81,7 +81,7 @@ export const ALL_SERVICES: ServiceItem[] = [
         frTitle: 'Appartement',
         frSpecs: ['3 Chambres', '2 salles de bains', 'Salon', 'Cuisine', 'Balcon', 'Parking'],
         price: '4.500$',
-        address: 'Blvd 30 juin Immo Serkas n°7639',
+        address: 'Blvd 30 juin Serkas Immo n°7639',
       },
       {
         title: 'Apartment',
@@ -89,7 +89,7 @@ export const ALL_SERVICES: ServiceItem[] = [
         frTitle: 'Appartement',
         frSpecs: ['2 Chambres', '2 salles de bains', 'Salon', 'Cuisine', 'Balcon', 'Parking'],
         price: '3.500$',
-        address: 'Blvd 30 juin Immo Serkas n°7639',
+        address: 'Blvd 30 juin Serkas Immo n°7639',
       },
       {
         title: 'Apartment',
@@ -97,7 +97,7 @@ export const ALL_SERVICES: ServiceItem[] = [
         frTitle: 'Appartement',
         frSpecs: ['1 chambre', '1 salle de bain', 'Salon', 'Cuisine', 'Balcon', 'Parking'],
         price: '2.500$',
-        address: 'Blvd 30 juin Immo Serkas n°7639',
+        address: 'Blvd 30 juin Serkas Immo n°7639',
       },
     ],
   },
