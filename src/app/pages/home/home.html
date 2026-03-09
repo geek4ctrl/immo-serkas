@@ -5,7 +5,7 @@
     <div class="hero-grad"></div>
     <div class="hero-inner">
       <div class="hero-text">
-        <span class="hero-badge">{{ langService.isEn() ? 'WELCOME TO' : 'BIENVENUE CHEZ' }}</span>
+        
         <ng-container *ngIf="langService.isEn(); else heroFr">
           <h1>Welcome to<br/>Immo Serkas</h1>
           <p>Real estate, logistics, and trade services that help you move, build, and grow with confidence.</p>
