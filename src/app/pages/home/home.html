@@ -33,12 +33,12 @@
         <img src="https://images.unsplash.com/photo-1448630360428-65456885c650?w=700&q=80" alt="About our services"/>
       </div>
       <div class="about-text">
-        <h2>{{ langService.isEn() ? 'About Us' : 'A propos' }}</h2>
+        <h2>{{ langService.isEn() ? 'About Us' : 'À propos' }}</h2>
         <ng-container *ngIf="langService.isEn(); else aboutFr">
           <p class="desc">Serkas Immo is a multidisciplinary group delivering real estate, transport, and operational services across the DRC. We combine local expertise with reliable execution to support individuals and businesses.</p>
         </ng-container>
         <ng-template #aboutFr>
-          <p class="desc">Serkas Immo est un groupe pluridisciplinaire offrant des services immobiliers, de transport et d exploitation en RDC. Nous allions expertise locale et execution fiable pour accompagner particuliers et entreprises.</p>
+          <p class="desc">Serkas Immo est un groupe pluridisciplinaire offrant des services immobiliers, de transport et d'exploitation en RDC. Nous allions expertise locale et exécution fiable pour accompagner particuliers et entreprises.</p>
         </ng-template>
         <div class="stats">
           <div class="stat">
@@ -51,7 +51,7 @@
           </div>
           <div class="stat">
             <span class="stat-val">20 +</span>
-            <span class="stat-lbl">{{ langService.isEn() ? 'Years Experience' : 'Ans d experience' }}</span>
+            <span class="stat-lbl">{{ langService.isEn() ? 'Years Experience' : "Ans d'expérience" }}</span>
           </div>
         </div>
         <a routerLink="/about" class="btn-navy">{{ langService.isEn() ? 'Learn More →' : 'En savoir plus →' }}</a>
@@ -74,9 +74,9 @@
             <p class="sub2">Customs clearance, transport, property management, and operational support tailored to your sector.</p>
           </ng-container>
           <ng-template #svcFr>
-            <p class="sub">De l immobilier a la logistique, nous offrons un accompagnement complet aux proprietaires, investisseurs et entreprises en croissance.</p>
-            <h4>Solutions specialisees</h4>
-            <p class="sub2">Dedouanement, transport, gestion immobiliere et appui operationnel adaptes a votre secteur.</p>
+            <p class="sub">De l'immobilier à la logistique, nous offrons des services fiables aux particuliers, investisseurs et entreprises.</p>
+            <h4>Solutions spécialisées</h4>
+            <p class="sub2">Dédouanement, transport, gestion immobilière et appui opérationnel adaptés à votre secteur.</p>
           </ng-template>
         </div>
         <div class="svc-right">
@@ -118,7 +118,7 @@
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
           </div>
           <div class="off-name"><strong>{{ langService.isEn() ? 'Customs Clearance' : 'Dedouanement' }}</strong></div>
-          <p>{{ langService.isEn() ? 'Import/export documentation and clearance for goods and equipment.' : 'Documents et formalites d import-export pour vos biens et equipements.' }}</p>
+          <p>{{ langService.isEn() ? 'Import/export documentation and clearance for goods and equipment.' : "Documents et formalités d'import-export pour vos biens et équipements." }}</p>
           <span class="lm">{{ langService.isEn() ? 'Read More' : 'En savoir plus' }}</span>
         </a>
         <a [routerLink]="['/services', 'real-estate']" class="off-card">
@@ -134,7 +134,7 @@
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
           </div>
           <div class="off-name"><strong>{{ langService.isEn() ? 'Tracking' : 'Tracking' }}</strong></div>
-          <p>{{ langService.isEn() ? 'Track shipments and assets with clear visibility from pickup to delivery.' : 'Suivez vos envois et actifs avec une visibilite claire du depart a la livraison.' }}</p>
+          <p>{{ langService.isEn() ? 'Track shipments and assets with clear visibility from pickup to delivery.' : 'Suivez vos envois et actifs avec une visibilité claire du départ à la livraison.' }}</p>
           <span class="lm">{{ langService.isEn() ? 'Read More' : 'En savoir plus' }}</span>
         </a>
         <a [routerLink]="['/services', 'manutention']" class="off-card">
@@ -142,7 +142,7 @@
             <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" fill="none" stroke="currentColor" stroke-width="2"/><line x1="6" y1="1" x2="6" y2="4" stroke="currentColor" stroke-width="2"/><line x1="10" y1="1" x2="10" y2="4" stroke="currentColor" stroke-width="2"/><line x1="14" y1="1" x2="14" y2="4" stroke="currentColor" stroke-width="2"/></svg>
           </div>
           <div class="off-name"><strong>{{ langService.isEn() ? 'Handling & Warehousing' : 'Manutention' }}</strong></div>
-          <p>{{ langService.isEn() ? 'Port, airport, and warehouse handling with secure storage options.' : 'Manutention portuaire, aeroportuaire et entreposage securise.' }}</p>
+          <p>{{ langService.isEn() ? 'Port, airport, and warehouse handling with secure storage options.' : 'Manutention portuaire, aéroportuaire et entreposage sécurisé.' }}</p>
           <span class="lm">{{ langService.isEn() ? 'Read More' : 'En savoir plus' }}</span>
         </a>
         <a [routerLink]="['/services', 'operation-exploitation']" class="off-card">
@@ -150,7 +150,7 @@
             <svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3"/></svg>
           </div>
           <div class="off-name"><strong>{{ langService.isEn() ? 'Operations & Exploitation' : 'Operation d exploitation' }}</strong></div>
-          <p>{{ langService.isEn() ? 'Operational support, brokerage, and promotion of concessions and assets.' : 'Appui operationnel, courtage et promotion de concessions et d actifs.' }}</p>
+          <p>{{ langService.isEn() ? 'Operational support, brokerage, and promotion of concessions and assets.' : "Appui opérationnel, courtage et promotion de concessions et d'actifs." }}</p>
           <span class="lm">{{ langService.isEn() ? 'Read More' : 'En savoir plus' }}</span>
         </a>
         <a [routerLink]="['/services', 'transport']" class="off-card">
@@ -170,7 +170,7 @@
             <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
           </div>
           <div class="off-name"><strong>{{ langService.isEn() ? 'Installation Operations' : 'Operation d installation' }}</strong></div>
-          <p>{{ langService.isEn() ? 'From manufacturing to installation, we handle imports, exports, and clearance of materials for real estate operations.' : 'De la fabrication a l installation, nous assurons importations, exportations et dedouanement des materiaux pour les operations immobilieres.' }}</p>
+          <p>{{ langService.isEn() ? 'From manufacturing to installation, we handle imports, exports, and clearance of materials for real estate operations.' : "De la fabrication à l'installation, nous assurons importations, exportations et dédouanement des matériaux pour les opérations immobilières." }}</p>
           <span class="lm">{{ langService.isEn() ? 'Read More' : 'En savoir plus' }}</span>
         </a>
         <a [routerLink]="['/services', 'studies']" class="off-card">
@@ -178,7 +178,7 @@
             <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
           </div>
           <div class="off-name"><strong>{{ langService.isEn() ? 'Study Operations' : 'Operations d etudes' }}</strong></div>
-          <p>{{ langService.isEn() ? 'Prospecting, research, and transformation of mineral resources for our account and for third parties.' : 'Prospections, recherches et transformation des substances minerales pour notre compte et pour celui des tiers.' }}</p>
+          <p>{{ langService.isEn() ? 'Prospecting, research, and transformation of mineral resources for our account and for third parties.' : 'Prospections, recherches et transformation des substances minérales pour notre compte et pour celui des tiers.' }}</p>
           <span class="lm">{{ langService.isEn() ? 'Read More' : 'En savoir plus' }}</span>
         </a>
         <a [routerLink]="['/services', 'oil']" class="off-card">
@@ -186,7 +186,7 @@
             <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
           </div>
           <div class="off-name"><strong>{{ langService.isEn() ? 'Oil & Gas Activities' : 'Activites petrolieres' }}</strong></div>
-          <p>{{ langService.isEn() ? 'Materials, systems, and clearance support for oil and gas operations.' : 'Materiaux, systemes et dedouanement pour les operations petrolieres.' }}</p>
+          <p>{{ langService.isEn() ? 'Materials, systems, and clearance support for oil and gas operations.' : 'Matériaux, systèmes et dédouanement pour les opérations pétrolières.' }}</p>
           <span class="lm">{{ langService.isEn() ? 'Read More' : 'En savoir plus' }}</span>
         </a>
         <a [routerLink]="['/services', 'trade']" class="off-card">
@@ -194,7 +194,7 @@
             <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 12h8" fill="none" stroke="currentColor" stroke-width="2"/></svg>
           </div>
           <div class="off-name"><strong>{{ langService.isEn() ? 'General Trade' : 'Commerce general' }}</strong></div>
-          <p>{{ langService.isEn() ? 'Trade across industry, forestry, agriculture, and livestock sectors.' : 'Commerce couvrant l industrie, la foresterie, l agriculture et l elevage.' }}</p>
+          <p>{{ langService.isEn() ? 'Trade across industry, forestry, agriculture, and livestock sectors.' : "Commerce couvrant l'industrie, la foresterie, l'agriculture et l'élevage." }}</p>
           <span class="lm">{{ langService.isEn() ? 'Read More' : 'En savoir plus' }}</span>
         </a>
         <a [routerLink]="['/services', 'logistics']" class="off-card">
@@ -202,7 +202,7 @@
             <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" fill="none" stroke="currentColor" stroke-width="2"/><polyline points="3.27 6.96 12 12.01 20.73 6.96" fill="none" stroke="currentColor" stroke-width="2"/><line x1="12" y1="22.08" x2="12" y2="12" stroke="currentColor" stroke-width="2"/></svg>
           </div>
           <div class="off-name"><strong>{{ langService.isEn() ? 'Logistics' : 'Logistiques' }}</strong></div>
-          <p>{{ langService.isEn() ? 'Design and optimization of logistics networks for industry and commerce.' : 'Conception et optimisation des reseaux logistiques pour l industrie et le commerce.' }}</p>
+          <p>{{ langService.isEn() ? 'Design and optimization of logistics networks for industry and commerce.' : "Conception et optimisation des réseaux logistiques pour l'industrie et le commerce." }}</p>
           <span class="lm">{{ langService.isEn() ? 'Read More' : 'En savoir plus' }}</span>
         </a>
       </div>
@@ -223,32 +223,32 @@
       <div class="why-port-img"></div>
       <div class="why-badge">
         <span class="why-badge-icon"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M16.5 9.4l-9-5.19M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" fill="none" stroke="currentColor" stroke-width="2"/><polyline points="3.27 6.96 12 12.01 20.73 6.96" fill="none" stroke="currentColor" stroke-width="2"/><line x1="12" y1="22.08" x2="12" y2="12" stroke="currentColor" stroke-width="2"/></svg></span>
-        {{ langService.isEn() ? 'Manage your properties and service requests' : 'Gerez vos biens et vos demandes de service' }}
+        {{ langService.isEn() ? 'Manage your properties and service requests' : 'Gérez vos biens et vos demandes de service' }}
       </div>
     </div>
     <div class="why-text-panel">
       <h2>{{ langService.isEn() ? 'Why Choose Us' : 'Pourquoi nous choisir' }}</h2>
-      <p>{{ langService.isEn() ? 'We combine market knowledge, operational rigor, and responsive service to deliver results you can trust.' : 'Nous combinons connaissance du marche, rigueur operationnelle et reactivite pour des resultats fiables.' }}</p>
+      <p>{{ langService.isEn() ? 'We combine market knowledge, operational rigor, and responsive service to deliver results you can trust.' : 'Nous combinons connaissance du marché, rigueur opérationnelle et réactivité pour des résultats fiables.' }}</p>
       <div class="why-feats">
         <div class="why-feat">
           <div class="feat-circle"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
           <div class="feat-body">
-            <h4>{{ langService.isEn() ? 'Secure Execution' : 'Execution securisee' }}</h4>
-            <p>{{ langService.isEn() ? 'Your projects and assets are handled with care, compliance, and clear processes.' : 'Vos projets et actifs sont geres avec soin, conformite et transparence.' }}</p>
+            <h4>{{ langService.isEn() ? 'Secure Execution' : 'Exécution sécurisée' }}</h4>
+            <p>{{ langService.isEn() ? 'Your projects and assets are handled with care, compliance, and clear processes.' : 'Vos projets et actifs sont gérés avec soin, conformité et transparence.' }}</p>
           </div>
         </div>
         <div class="why-feat">
           <div class="feat-circle"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
           <div class="feat-body">
-            <h4>{{ langService.isEn() ? 'Reliability' : 'Fiabilite' }}</h4>
-            <p>{{ langService.isEn() ? 'Structured planning and proactive communication keep every engagement on track.' : 'Une planification structuree et une communication proactive pour respecter les delais.' }}</p>
+            <h4>{{ langService.isEn() ? 'Reliability' : 'Fiabilité' }}</h4>
+            <p>{{ langService.isEn() ? 'Structured planning and proactive communication keep every engagement on track.' : 'Une planification structurée et une communication proactive pour respecter les délais.' }}</p>
           </div>
         </div>
         <div class="why-feat">
           <div class="feat-circle"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><line x1="2" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="2"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
           <div class="feat-body">
             <h4>{{ langService.isEn() ? 'Local Expertise' : 'Expertise locale' }}</h4>
-            <p>{{ langService.isEn() ? 'Deep knowledge of the DRC market with the reach to support regional and international needs.' : 'Une connaissance approfondie du marche en RDC, avec une portee regionale et internationale.' }}</p>
+            <p>{{ langService.isEn() ? 'Deep knowledge of the DRC market with the reach to support regional and international needs.' : 'Une connaissance approfondie du marché en RDC, avec une portée régionale et internationale.' }}</p>
           </div>
         </div>
       </div>

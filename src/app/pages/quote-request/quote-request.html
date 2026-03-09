@@ -2,8 +2,8 @@
   <!-- Hero Section -->
   <section class="quote-hero">
     <div class="quote-hero-inner">
-      <h1>Request a Quote</h1>
-      <p>Get a customized shipping quote tailored to your needs. Fill out the form below and our team will get back to you within 24 hours.</p>
+      <h1>{{ langService.isEn() ? 'Request a Quote' : 'Demander un devis' }}</h1>
+      <p>{{ langService.isEn() ? 'Get a customized shipping quote tailored to your needs. Fill out the form below and our team will get back to you within 24 hours.' : 'Obtenez un devis d\'expédition personnalisé adapté à vos besoins. Remplissez le formulaire ci-dessous et notre équipe vous contactera dans les 24 heures.' }}</p>
     </div>
   </section>
 
@@ -11,20 +11,20 @@
     <!-- Success Message -->
     <div *ngIf="submitSuccess" class="success-message">
       <div class="success-icon">✓</div>
-      <h2>Quote Request Submitted!</h2>
-      <p>Thank you for your request. Our team will review your requirements and contact you within 24 hours with a customized quote.</p>
+      <h2>{{ langService.isEn() ? 'Quote Request Submitted!' : 'Demande de devis envoyée !' }}</h2>
+      <p>{{ langService.isEn() ? 'Thank you for your request. Our team will review your requirements and contact you within 24 hours with a customized quote.' : 'Merci pour votre demande. Notre équipe examinera vos besoins et vous contactera dans les 24 heures avec un devis personnalisé.' }}</p>
       <div class="success-actions">
-        <button class="btn-primary" (click)="resetForm()">Submit Another Request</button>
-        <a routerLink="/services" class="btn-secondary">Back to Services</a>
+        <button class="btn-primary" (click)="resetForm()">{{ langService.isEn() ? 'Submit Another Request' : 'Envoyer une autre demande' }}</button>
+        <a routerLink="/services" class="btn-secondary">{{ langService.isEn() ? 'Back to Services' : 'Retour aux services' }}</a>
       </div>
     </div>
 
     <!-- Error Message -->
     <div *ngIf="submitError" class="error-message">
       <div class="error-icon">✕</div>
-      <h2>Something went wrong</h2>
-      <p>We couldn't submit your request. Please try again or contact us directly.</p>
-      <button class="btn-primary" (click)="submitError = false">Try Again</button>
+      <h2>{{ langService.isEn() ? 'Something went wrong' : 'Une erreur s\'est produite' }}</h2>
+      <p>{{ langService.isEn() ? 'We couldn\'t submit your request. Please try again or contact us directly.' : 'Nous n\'avons pas pu soumettre votre demande. Veuillez réessayer ou nous contacter directement.' }}</p>
+      <button class="btn-primary" (click)="submitError = false">{{ langService.isEn() ? 'Try Again' : 'Réessayer' }}</button>
     </div>
 
     <!-- Form -->
@@ -34,82 +34,82 @@
       <div class="progress-steps">
         <div class="step" [class.active]="currentStep >= 1" [class.current]="currentStep === 1" (click)="goToStep(1)">
           <span class="step-number">1</span>
-          <span class="step-label">Contact</span>
+          <span class="step-label">{{ langService.isEn() ? 'Contact' : 'Contact' }}</span>
         </div>
         <div class="step-connector" [class.completed]="currentStep > 1"></div>
         <div class="step" [class.active]="currentStep >= 2" [class.current]="currentStep === 2" (click)="goToStep(2)">
           <span class="step-number">2</span>
-          <span class="step-label">Service</span>
+          <span class="step-label">{{ langService.isEn() ? 'Service' : 'Service' }}</span>
         </div>
         <div class="step-connector" [class.completed]="currentStep > 2"></div>
         <div class="step" [class.active]="currentStep >= 3" [class.current]="currentStep === 3" (click)="goToStep(3)">
           <span class="step-number">3</span>
-          <span class="step-label">Cargo</span>
+          <span class="step-label">{{ langService.isEn() ? 'Cargo' : 'Cargo' }}</span>
         </div>
         <div class="step-connector" [class.completed]="currentStep > 3"></div>
         <div class="step" [class.active]="currentStep >= 4" [class.current]="currentStep === 4" (click)="goToStep(4)">
           <span class="step-number">4</span>
-          <span class="step-label">Locations</span>
+          <span class="step-label">{{ langService.isEn() ? 'Locations' : 'Lieux' }}</span>
         </div>
         <div class="step-connector" [class.completed]="currentStep > 4"></div>
         <div class="step" [class.active]="currentStep >= 5" [class.current]="currentStep === 5" (click)="goToStep(5)">
           <span class="step-number">5</span>
-          <span class="step-label">Files</span>
+          <span class="step-label">{{ langService.isEn() ? 'Files' : 'Fichiers' }}</span>
         </div>
       </div>
 
       <!-- Step 1: Personal Information -->
       <div *ngIf="currentStep === 1" class="form-step">
-        <h2>Personal Information</h2>
-        <p class="step-description">Tell us who you are so we can get in touch with you.</p>
+        <h2>{{ langService.isEn() ? 'Personal Information' : 'Informations personnelles' }}</h2>
+        <p class="step-description">{{ langService.isEn() ? 'Tell us who you are so we can get in touch with you.' : 'Dites-nous qui vous êtes pour que nous puissions vous contacter.' }}</p>
 
         <div class="form-row">
           <div class="form-group">
-            <label for="firstName">First Name *</label>
-            <input type="text" id="firstName" formControlName="firstName" placeholder="John">
+            <label for="firstName">{{ langService.isEn() ? 'First Name *' : 'Prénom *' }}</label>
+            <input type="text" id="firstName" formControlName="firstName" placeholder="Jean">
             <div *ngIf="quoteForm.get('firstName')?.invalid && quoteForm.get('firstName')?.touched" class="error-text">
-              First name is required (min 2 characters)
+              {{ langService.isEn() ? 'First name is required (min 2 characters)' : 'Le prénom est requis (min 2 caractères)' }}
             </div>
           </div>
           <div class="form-group">
-            <label for="lastName">Last Name *</label>
-            <input type="text" id="lastName" formControlName="lastName" placeholder="Doe">
+            <label for="lastName">{{ langService.isEn() ? 'Last Name *' : 'Nom *' }}</label>
+            <input type="text" id="lastName" formControlName="lastName" placeholder="Dupont">
             <div *ngIf="quoteForm.get('lastName')?.invalid && quoteForm.get('lastName')?.touched" class="error-text">
-              Last name is required (min 2 characters)
+              {{ langService.isEn() ? 'Last name is required (min 2 characters)' : 'Le nom est requis (min 2 caractères)' }}
             </div>
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group">
-            <label for="email">Email Address *</label>
-            <input type="email" id="email" formControlName="email" placeholder="john.doe@company.com">
+            <label for="email">{{ langService.isEn() ? 'Email Address *' : 'Adresse e-mail *' }}</label>
+            <input type="email" id="email" formControlName="email" placeholder="jean.dupont@entreprise.com">
             <div *ngIf="quoteForm.get('email')?.invalid && quoteForm.get('email')?.touched" class="error-text">
-              Valid email is required
+              {{ langService.isEn() ? 'Valid email is required' : 'Une adresse e-mail valide est requise' }}
             </div>
           </div>
           <div class="form-group">
-            <label for="phone">Phone Number *</label>
-            <input type="tel" id="phone" formControlName="phone" placeholder="+1 234 567 890" appPhoneMask>
+            <label for="phone">{{ langService.isEn() ? 'Phone Number *' : 'Numéro de téléphone *' }}</label>
+            <input type="tel" id="phone" formControlName="phone" placeholder="+243 00 000 001" appPhoneMask>
             <div *ngIf="quoteForm.get('phone')?.invalid && quoteForm.get('phone')?.touched" class="error-text">
-              Valid phone number is required (e.g., +1 234 567 890)
+              {{ langService.isEn() ? 'Valid phone number is required' : 'Un numéro de téléphone valide est requis' }}
             </div>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="companyName">Company Name (Optional)</label>
-          <input type="text" id="companyName" formControlName="companyName" placeholder="Your Company Ltd.">
+          <label for="companyName">{{ langService.isEn() ? 'Company Name (Optional)' : 'Nom de l\'entreprise (Facultatif)' }}</label>
+          <input type="text" id="companyName" formControlName="companyName" placeholder="Votre Entreprise SARL">
         </div>
       </div>
 
       <!-- Step 2: Service Type -->
       <div *ngIf="currentStep === 2" class="form-step">
-        <h2>Service Type</h2>
-        <p class="step-description">Select the service that best fits your needs.</p>
+        <h2>{{ langService.isEn() ? 'Service Type' : 'Type de service' }}</h2>
+        <p class="step-description">{{ langService.isEn() ? 'Select the service that best fits your needs.' : 'Sélectionnez le service qui correspond le mieux à vos besoins.' }}</p>
 
         <div class="form-group">
-          <label>Select Service *</label>
+          <label>{{ langService.isEn() ? 'Select Service *' : 'Sélectionner un service *' }}</label>
           <div class="service-options">
             <div *ngFor="let service of serviceTypes" class="service-option" 
                  [class.selected]="quoteForm.get('serviceType')?.value === service.value"
@@ -119,12 +119,12 @@
             </div>
           </div>
           <div *ngIf="quoteForm.get('serviceType')?.invalid && quoteForm.get('serviceType')?.touched" class="error-text">
-            Please select a service type
+            {{ langService.isEn() ? 'Please select a service type' : 'Veuillez sélectionner un type de service' }}
           </div>
         </div>
 
         <div class="form-group">
-          <label>Urgency Level *</label>
+          <label>{{ langService.isEn() ? 'Urgency Level *' : 'Niveau d\'urgence *' }}</label>
           <div class="urgency-options">
             <div *ngFor="let urgency of urgencyLevels" class="urgency-option"
                  [class.selected]="quoteForm.get('urgency')?.value === urgency.value"
@@ -138,65 +138,65 @@
 
       <!-- Step 3: Cargo Details -->
       <div *ngIf="currentStep === 3" class="form-step">
-        <h2>Cargo Details</h2>
-        <p class="step-description">Provide detailed information about your cargo.</p>
+        <h2>{{ langService.isEn() ? 'Cargo Details' : 'Détails du cargo' }}</h2>
+        <p class="step-description">{{ langService.isEn() ? 'Provide detailed information about your cargo.' : 'Fournissez des informations détaillées sur votre cargo.' }}</p>
 
         <div class="form-group">
-          <label for="cargoType">Cargo Type *</label>
+          <label for="cargoType">{{ langService.isEn() ? 'Cargo Type *' : 'Type de cargo *' }}</label>
           <select id="cargoType" formControlName="cargoType">
-            <option value="">Select cargo type</option>
+            <option value="">{{ langService.isEn() ? 'Select cargo type' : 'Sélectionner le type de cargo' }}</option>
             <option *ngFor="let type of cargoTypes" [value]="type">{{ type }}</option>
           </select>
           <div *ngIf="cargoDetailsForm.get('cargoType')?.invalid && cargoDetailsForm.get('cargoType')?.touched" class="error-text">
-            Please select a cargo type
+            {{ langService.isEn() ? 'Please select a cargo type' : 'Veuillez sélectionner un type de cargo' }}
           </div>
         </div>
 
         <div class="form-group">
-          <label for="description">Cargo Description *</label>
-          <textarea id="description" formControlName="description" rows="3" placeholder="Describe your cargo in detail..."></textarea>
+          <label for="description">{{ langService.isEn() ? 'Cargo Description *' : 'Description du cargo *' }}</label>
+          <textarea id="description" formControlName="description" rows="3" placeholder="{{ langService.isEn() ? 'Describe your cargo in detail...' : 'Décrivez votre cargo en détail...' }}"></textarea>
           <div *ngIf="cargoDetailsForm.get('description')?.invalid && cargoDetailsForm.get('description')?.touched" class="error-text">
-            Description is required (min 10 characters)
+            {{ langService.isEn() ? 'Description is required (min 10 characters)' : 'La description est requise (min 10 caractères)' }}
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group weight-group">
-            <label for="weight">Weight *</label>
+            <label for="weight">{{ langService.isEn() ? 'Weight *' : 'Poids *' }}</label>
             <div class="input-with-select">
               <input type="number" id="weight" formControlName="weight" placeholder="0.00" step="0.01" min="0.1">
               <select formControlName="weightUnit">
                 <option value="kg">kg</option>
-                <option value="tons">tons</option>
+                <option value="tons">{{ langService.isEn() ? 'tons' : 'tonnes' }}</option>
                 <option value="lbs">lbs</option>
               </select>
             </div>
             <div *ngIf="cargoDetailsForm.get('weight')?.invalid && cargoDetailsForm.get('weight')?.touched" class="error-text">
-              Valid weight is required
+              {{ langService.isEn() ? 'Valid weight is required' : 'Un poids valide est requis' }}
             </div>
           </div>
           <div class="form-group">
-            <label for="quantity">Quantity *</label>
+            <label for="quantity">{{ langService.isEn() ? 'Quantity *' : 'Quantité *' }}</label>
             <input type="number" id="quantity" formControlName="quantity" placeholder="1" min="1">
             <div *ngIf="cargoDetailsForm.get('quantity')?.invalid && cargoDetailsForm.get('quantity')?.touched" class="error-text">
-              Valid quantity is required
+              {{ langService.isEn() ? 'Valid quantity is required' : 'Une quantité valide est requise' }}
             </div>
           </div>
         </div>
 
         <div class="form-group" formGroupName="dimensions">
-          <label>Dimensions (L × W × H) *</label>
+          <label>{{ langService.isEn() ? 'Dimensions (L × W × H) *' : 'Dimensions (L × l × H) *' }}</label>
           <div class="dimensions-input">
-            <input type="number" formControlName="length" placeholder="Length" step="0.1" min="0.1">
+            <input type="number" formControlName="length" placeholder="{{ langService.isEn() ? 'Length' : 'Longueur' }}" step="0.1" min="0.1">
             <span>×</span>
-            <input type="number" formControlName="width" placeholder="Width" step="0.1" min="0.1">
+            <input type="number" formControlName="width" placeholder="{{ langService.isEn() ? 'Width' : 'Largeur' }}" step="0.1" min="0.1">
             <span>×</span>
-            <input type="number" formControlName="height" placeholder="Height" step="0.1" min="0.1">
+            <input type="number" formControlName="height" placeholder="{{ langService.isEn() ? 'Height' : 'Hauteur' }}" step="0.1" min="0.1">
             <select formControlName="dimensionUnit">
               <option value="cm">cm</option>
               <option value="m">m</option>
-              <option value="inches">in</option>
-              <option value="feet">ft</option>
+              <option value="inches">{{ langService.isEn() ? 'in' : 'pouces' }}</option>
+              <option value="feet">{{ langService.isEn() ? 'ft' : 'pieds' }}</option>
             </select>
           </div>
         </div>
@@ -205,56 +205,56 @@
           <label class="checkbox-label">
             <input type="checkbox" formControlName="isFragile">
             <span class="checkmark"></span>
-            Fragile cargo
+            {{ langService.isEn() ? 'Fragile cargo' : 'Cargo fragile' }}
           </label>
           <label class="checkbox-label">
             <input type="checkbox" formControlName="requiresRefrigeration">
             <span class="checkmark"></span>
-            Requires refrigeration
+            {{ langService.isEn() ? 'Requires refrigeration' : 'Nécessite réfrigération' }}
           </label>
           <label class="checkbox-label">
             <input type="checkbox" formControlName="isHazardous">
             <span class="checkmark"></span>
-            Hazardous materials
+            {{ langService.isEn() ? 'Hazardous materials' : 'Matières dangereuses' }}
           </label>
         </div>
       </div>
 
       <!-- Step 4: Locations -->
       <div *ngIf="currentStep === 4" class="form-step">
-        <h2>Pickup & Delivery Locations</h2>
-        <p class="step-description">Provide complete address details for pickup and delivery. Start typing to see address suggestions.</p>
+        <h2>{{ langService.isEn() ? 'Pickup & Delivery Locations' : 'Lieux de ramassage et de livraison' }}</h2>
+        <p class="step-description">{{ langService.isEn() ? 'Provide complete address details for pickup and delivery. Start typing to see address suggestions.' : 'Fournissez les détails complets de l\'adresse pour le ramassage et la livraison.' }}</p>
 
         <!-- Pickup Location -->
         <div class="location-section">
-          <h3>📍 Pickup Location</h3>
+          <h3>📍 {{ langService.isEn() ? 'Pickup Location' : 'Lieu de ramassage' }}</h3>
           <div formGroupName="pickupLocation">
             <div class="form-group">
-              <label>Street Address *</label>
-              <input type="text" formControlName="address" placeholder="123 Main Street">
+              <label>{{ langService.isEn() ? 'Street Address *' : 'Adresse *' }}</label>
+              <input type="text" formControlName="address" placeholder="123 Rue Principale">
             </div>
             <div class="form-row">
               <div class="form-group">
-                <label>City *</label>
-                <input type="text" formControlName="city" placeholder="New York">
+                <label>{{ langService.isEn() ? 'City *' : 'Ville *' }}</label>
+                <input type="text" formControlName="city" placeholder="Kinshasa">
               </div>
               <div class="form-group">
-                <label>Postal Code *</label>
+                <label>{{ langService.isEn() ? 'Postal Code *' : 'Code postal *' }}</label>
                 <input type="text" formControlName="postalCode" placeholder="10001">
               </div>
             </div>
             <div class="form-group">
-              <label>Country *</label>
-              <input type="text" formControlName="country" placeholder="United States">
+              <label>{{ langService.isEn() ? 'Country *' : 'Pays *' }}</label>
+              <input type="text" formControlName="country" placeholder="RDC">
             </div>
             <div class="form-row">
               <div class="form-group">
-                <label>Contact Name *</label>
-                <input type="text" formControlName="contactName" placeholder="Contact person name">
+                <label>{{ langService.isEn() ? 'Contact Name *' : 'Nom du contact *' }}</label>
+                <input type="text" formControlName="contactName" placeholder="Nom de la personne à contacter">
               </div>
               <div class="form-group">
-                <label>Contact Phone *</label>
-                <input type="tel" formControlName="contactPhone" placeholder="+1 234 567 890" appPhoneMask>
+                <label>{{ langService.isEn() ? 'Contact Phone *' : 'Téléphone du contact *' }}</label>
+                <input type="tel" formControlName="contactPhone" placeholder="+243 00 000 001" appPhoneMask>
               </div>
             </div>
           </div>
@@ -262,34 +262,34 @@
 
         <!-- Delivery Location -->
         <div class="location-section">
-          <h3>🎯 Delivery Location</h3>
+          <h3>🎯 {{ langService.isEn() ? 'Delivery Location' : 'Lieu de livraison' }}</h3>
           <div formGroupName="deliveryLocation">
             <div class="form-group">
-              <label>Street Address *</label>
-              <input type="text" formControlName="address" placeholder="456 Delivery Ave">
+              <label>{{ langService.isEn() ? 'Street Address *' : 'Adresse *' }}</label>
+              <input type="text" formControlName="address" placeholder="456 Avenue de la Livraison">
             </div>
             <div class="form-row">
               <div class="form-group">
-                <label>City *</label>
-                <input type="text" formControlName="city" placeholder="Los Angeles">
+                <label>{{ langService.isEn() ? 'City *' : 'Ville *' }}</label>
+                <input type="text" formControlName="city" placeholder="Lubumbashi">
               </div>
               <div class="form-group">
-                <label>Postal Code *</label>
+                <label>{{ langService.isEn() ? 'Postal Code *' : 'Code postal *' }}</label>
                 <input type="text" formControlName="postalCode" placeholder="90001">
               </div>
             </div>
             <div class="form-group">
-              <label>Country *</label>
-              <input type="text" formControlName="country" placeholder="United States">
+              <label>{{ langService.isEn() ? 'Country *' : 'Pays *' }}</label>
+              <input type="text" formControlName="country" placeholder="RDC">
             </div>
             <div class="form-row">
               <div class="form-group">
-                <label>Contact Name *</label>
-                <input type="text" formControlName="contactName" placeholder="Recipient name">
+                <label>{{ langService.isEn() ? 'Contact Name *' : 'Nom du contact *' }}</label>
+                <input type="text" formControlName="contactName" placeholder="Nom du destinataire">
               </div>
               <div class="form-group">
-                <label>Contact Phone *</label>
-                <input type="tel" formControlName="contactPhone" placeholder="+1 234 567 890" appPhoneMask>
+                <label>{{ langService.isEn() ? 'Contact Phone *' : 'Téléphone du contact *' }}</label>
+                <input type="tel" formControlName="contactPhone" placeholder="+243 00 000 001" appPhoneMask>
               </div>
             </div>
           </div>
@@ -298,38 +298,38 @@
 
       <!-- Step 5: File Upload -->
       <div *ngIf="currentStep === 5" class="form-step">
-        <h2>Attachments</h2>
-        <p class="step-description">Upload photos or documents related to your cargo (optional).</p>
+        <h2>{{ langService.isEn() ? 'Attachments' : 'Pièces jointes' }}</h2>
+        <p class="step-description">{{ langService.isEn() ? 'Upload photos or documents related to your cargo (optional).' : 'Téléchargez des photos ou documents relatifs à votre cargo (facultatif).' }}</p>
 
         <div class="form-group">
-          <label>Cargo Photos / Documents</label>
+          <label>{{ langService.isEn() ? 'Cargo Photos / Documents' : 'Photos / Documents du cargo' }}</label>
           <app-file-upload
             [multiple]="true"
             [maxFiles]="5"
             [maxFileSize]="10 * 1024 * 1024"
             acceptedTypes="image/*,.pdf,.doc,.docx,.xls,.xlsx"
-            acceptedTypesLabel="Images, PDF, Word, Excel"
+            [acceptedTypesLabel]="langService.isEn() ? 'Images, PDF, Word, Excel' : 'Images, PDF, Word, Excel'"
             (filesChanged)="onFilesChanged($event)">
           </app-file-upload>
         </div>
 
         <div class="form-group">
-          <label for="additionalNotes">Additional Notes (Optional)</label>
-          <textarea id="additionalNotes" formControlName="additionalNotes" rows="3" placeholder="Any special requirements or instructions..."></textarea>
+          <label for="additionalNotes">{{ langService.isEn() ? 'Additional Notes (Optional)' : 'Notes supplémentaires (Facultatif)' }}</label>
+          <textarea id="additionalNotes" formControlName="additionalNotes" rows="3" placeholder="{{ langService.isEn() ? 'Any special requirements or instructions...' : 'Exigences ou instructions particulières...' }}"></textarea>
         </div>
       </div>
 
       <!-- Navigation Buttons -->
       <div class="form-navigation">
         <button type="button" class="btn-secondary" (click)="previousStep()" *ngIf="currentStep > 1">
-          ← Previous
+          ← {{ langService.isEn() ? 'Previous' : 'Précédent' }}
         </button>
         <button type="button" class="btn-primary" (click)="nextStep()" *ngIf="currentStep < totalSteps" [disabled]="!isCurrentStepValid()">
-          Next →
+          {{ langService.isEn() ? 'Next' : 'Suivant' }} →
         </button>
         <button type="submit" class="btn-submit" *ngIf="currentStep === totalSteps" [disabled]="!quoteForm.valid || isSubmitting">
-          <span *ngIf="!isSubmitting">Submit Quote Request</span>
-          <span *ngIf="isSubmitting">Submitting...</span>
+          <span *ngIf="!isSubmitting">{{ langService.isEn() ? 'Submit Quote Request' : 'Envoyer la demande de devis' }}</span>
+          <span *ngIf="isSubmitting">{{ langService.isEn() ? 'Submitting...' : 'Envoi en cours...' }}</span>
         </button>
       </div>
     </form>
